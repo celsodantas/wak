@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EstagioRApp</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :all %>
+  <%= csrf_meta_tag %>
+  <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+
+</head>
+<body>
+
+	<div class="left-content">
+		<div class="tag"></div>
+		<div class="logo"></div>
+		<div id="txt-search"> 
+			<%= form_tag internships_path, :method => :get do %>
+				<div class="magnifier"></div>
+				<div class="erase-btn" style="display: none"></div>
+				<input type="text" name="query" value="<%=params[:query]%>" id="query" autocomplete="off">
+			<% end -%>
+		</div>
+		<div id="btn-new-internship" enabled="true"></div>
+		<div class="footer">
+			Desenvolvido por <a href="http://about.celsodantas.com" class="no-decoration">celsodantas.com</a>. Todos os direitos reservados  @ 2011<br/>
+			Em caso de dúvidas/problemas entre em <a href="javascript:;">contato</a>
+		</div>
+		<div class="arrow"></div>
+	</div>
+	
+
+	<div class="right-content">
+		<div class="pad"></div>
+		<div class="content">
+			<%= yield %>
+		</div>
+	</div>
+	
+	<div id="box-add-internship" style="display: none">
+		<div class="btn-close"></div>
+		<div class="inner">
+			<div class="header"></div>
+			<%= form_tag internships_path, :id => "internship_create" do %>
+				<fieldset>
+					<label for="title" class="title">Título</label><span class="points">::</span>
+					<input class="input title" type="text" name="internship[title]" value="ex: &quot;Escritório de Manuel Sá&quot;, &quot;Java Web&quot;" autocomplete="off">
+				</fieldset>
+				<fieldset>
+					<label for="area" class="area">Área</label><span class="points">::</span>
+					<input class="input area" type="text" name="area" value="ex: Arquitetura, Engenharia Civíl" autocomplete="off">
+				</fieldset>
+				<fieldset>
+					<label for="" class="description">Descrição</label><span class="points">::</span>
+					<textarea class="input description" autocomplete="off" name="internship[description]">ex: Estudante de Arquitetura a partir do 4º semestre com conhecimento em AutoCAD e desejando trabalhar em projetos urbanisticos.
+
+Bolsa: R$XXXX,00/mês
+Bairro: Rio Vermelho
+Contato: joao@email.com ou 9999-9999</textarea>
+				</fieldset>
+				<div class="char-counter">Contador: <span>0</span>/1000 letras</div>
+				<input type="submit" class="btn-add" value=""/>
+				<div class="ajax-loader" style="display: none"></div>
+			<% end -%>
+		</div>
+		<div class="arrow"></div>
+	</div>
+
+</body>
+</html>

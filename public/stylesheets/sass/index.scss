@@ -1,0 +1,321 @@
+$left_panel_width: 563px;
+
+body {
+	background: url(/images/fabric-black-bg.png) repeat left top; 
+}
+
+html, body { 
+	padding: 0px; 
+	margin: 0px; 
+	height: 100%; 
+	font-family: helvetica,clean,sans-serif; 
+	font-weight: 100}
+
+a {
+	color: black;
+	&:hover {	color: #6E6E6E;}
+	&:visited {	color: blue;}
+}
+
+.no-decoration {
+	text-decoration: none;
+}
+
+div.left-content {  	background-color: red;
+	z-index: 50;
+	position: fixed;
+	height: 100%;
+	float: left;
+	width: $left_panel_width; 
+	background: url(/images/bg-purple.jpg)  no-repeat scroll -163px -65px #9b2eb3;
+	box-shadow: 5px 0 15px #010;
+	.tag {
+		position: absolute;
+		top: 0; left: 0;
+		background: url(/images/topleft-tag.png)  no-repeat scroll transparent;
+		width: 107px;
+		height: 107px;
+	}
+	.logo {
+		margin: auto;
+		margin-top: 106px;
+		background-color: red;
+		width: 388px;
+		height: 193px;
+		background: url(/images/logo.png)  no-repeat scroll transparent;
+	}
+	#txt-search { background-color: red;
+		margin:auto;
+		margin-top: 60px;
+		width: 368px;
+		height: 31px;
+		background: url(/images/search-sprite.png) -16px 0 no-repeat scroll transparent;
+		.magnifier {
+			float: left;
+			width: 30px;
+			height: 30px;
+			background: url(/images/search-sprite.png) -325px -33px no-repeat scroll transparent;
+		}
+		.erase-btn {
+			float: right;
+			right: 0px;
+			width: 30px;
+			height: 30px;
+			background: url(/images/search-sprite.png) -357px -32px  no-repeat scroll transparent;
+		}
+		input {
+			border: 0;
+			margin: -1px 0 0 0 ;
+			padding: 0;
+			width: 308px;
+			height: 33px;
+			outline: none; 
+			font-size: 18px;
+			background: transparent;
+			color: #6c6c6c;
+		}	
+	}
+	#btn-new-internship {
+		margin:auto;
+		margin-top: 60px;
+		width: 275px;
+		height: 57px;
+		background: url(/images/add-internship-sprite.png) -2px 0 no-repeat scroll transparent;
+		&.pressed {
+			background-position: -2px -75px !important;
+		}
+	}
+	.footer {
+		$footer_txt_color: #e0bde7;
+		position: fixed;
+		bottom: 5px;
+		width: 400px;
+		text-align: center;
+		left: 89px;
+		font-size: 11px;
+		color: $footer_txt_color;
+		a {
+			color:$footer_txt_color;
+		}
+	}
+	.arrow {
+		position: fixed;
+		top: 186px;
+		left: $left_panel_width;
+		width: 16px;
+		height: 32px;
+		background: url(/images/arrow.png)  no-repeat scroll transparent;
+		z-index: 500;
+	}
+}
+
+div#box-add-internship {
+	background: url(/images/add-internship-box-sprite.png)  no-repeat scroll transparent;
+	
+	height: 417px;
+	width: 555px;	
+	z-index: 1000;
+	
+	position: fixed;
+	top: 18px;
+	left: 3px;
+	box-shadow: 1px t1px 34px #000;
+	.arrow {
+		background: url("/images/add-internship-box-sprite.png") no-repeat scroll -277px -40px transparent;
+	    height: 50px;
+	    left: 266px;
+	    position: absolute;
+	    top: 396px;
+	    width: 35px;
+	}
+	.btn-close {
+		background: url("/images/add-internship-box-sprite.png") no-repeat scroll -206px -61px transparent;
+	    height: 30px;
+	    position: absolute;
+	    right: -10px;
+	    top: -11px;
+	    width: 29px;
+	}
+	.inner { 
+		background: url(/images/bg-add-internship-box.png)  no-repeat scroll black;
+		height: 364px;
+		width: 502px;
+		position: absolute;
+		top: 27px;
+		left: 27px;
+		
+		.header {
+			background: url(/images/add-internship-box-sprite.png) -57px -100px no-repeat scroll transparent;
+			width: 422px;
+			height: 38px;
+			margin: 15px auto;
+		}
+		form {
+			margin: 0 0 0 42px;
+			color: #cacaca;
+			font-family: Arial;
+			fieldset {
+				border: 0;
+
+				label {
+					float:left;
+					font-size: 15px; 
+					margin: 0 5px 0 0;
+					&.title { margin: 0 44px 0 0; }
+					&.area { margin: 0 49px 0 0; }
+					&.description { margin: 0 14px 0 0; }
+				}
+				.points { float: left; margin: 0 11px 0 0;}
+				input {
+					font-family: Arial, sans-serif;
+					color: #c6c6c6;
+					width: 302px;
+					font-size: 12px;
+					.has_content {
+						color: black;
+					}
+				}
+				textarea {
+					font-family: Arial, sans-serif;
+					color: #c6c6c6;
+					font-size: 13px;
+					height: 124px;
+					width: 306px;
+				}
+			}
+			.char-counter {
+				font-size: 10px;
+				margin: -10px 0 0 112px;
+			}
+			.btn-add {
+				border:0;
+				background: url("/images/add-internship-box-sprite.png") no-repeat scroll -61px -59px transparent;
+				height: 39px;
+				width: 122px;
+				margin: 0px 0 0 301px
+			}
+			.ajax-loader {
+				background: url("/images/ajax-loader.gif") no-repeat scroll -9px 0 transparent;
+			    height: 16px;
+			    left: 155px;
+			    position: absolute;
+			    top: 305px;
+			    width: 180px;
+			}
+			.has_focus {
+				color: #4a4a4a;
+			}
+		}
+		
+	}
+}
+
+div.right-content {
+	z-index: 0;
+	float: right;
+	margin-left: $left_panel_width;
+	min-height: 800px;
+	
+	
+	.pad {
+		float:left; 
+		width:500px; }
+		
+	.content {
+		float: right;
+		/*width é calculado por javascript*/
+	
+		.header,.internship {
+			word-wrap:break-word;
+			position:relative;
+			margin: 40px;	
+			padding-bottom: 10px;
+			border-radius: 24px;
+			background-color: #C9C9C9;
+			background-image: -webkit-linear-gradient(top, white, #A5A5A5);
+			background-image: -moz-linear-gradient(top, white, #A5A5A5);
+			background-image: -ms-linear-gradient(top, white, #A5A5A5);
+			background-image: -o-linear-gradient(top, white, #A5A5A5);
+			background-image: linear-gradient(top, white, #A5A5A5);
+			box-shadow: 1px 4px 8px #010;}
+			
+		.header { 		/* HEADER */
+			height: 40px; 
+			
+			h1 {
+				font-size: 18px;
+				font-weight: 100;
+				padding: 15px 0 0 20px; }
+			#remove-filter {
+				font-size: 12px;
+				position: absolute;
+				right: 20px;
+				bottom: 16px;} }
+				
+		.internship {
+			h1 {  	/* INTERNSHIP */
+				font-size: 19px;
+				font-weight: 100;
+				padding: 14px 0 0 20px;
+				margin: 0;
+				color: #6A6A6A;}
+				
+			input {
+				height: 20px; 
+				padding:0; 
+				margin: 11px 0 0 16px; 
+				width: 450px;
+				color: #6A6A6A;
+			    font-size: 18px;
+			    font-weight: 100;
+				font-family: Arial,sans-serif;}
+			
+			textarea {
+				height: 124px;
+				padding:0; 
+				margin: 5px 0 13px 16px; 
+				color: #6A6A6A;
+			    font-size: 14px;
+			    font-weight: 100;
+				font-family: Arial,sans-serif;}	
+				
+			p {  	/* INTERNSHIP */
+				font-size: 14px;
+				font-weight: 100;
+				padding: 0 20px 0 20px;
+				color: black;}
+				
+			.release-date {  	/* INTERNSHIP */
+				font-family: Cursive;
+				font-size: 25px;
+				color: gray;
+				position: absolute;
+				top: 8px; right: 15px;}
+				    	
+			.division {
+				width: 100%;}
+				
+			.division .line {
+					height: 1px;
+					background-color: #b0b0b1;
+					margin: 0 110px 0 19px;}
+			
+			.edit,.save {
+				cursor: pointer;
+				text-decoration: underline;
+				font-size: 11px;
+				position: absolute;
+				bottom: 5px;
+				right: 23px;
+			}
+			
+			.time_ago_in_words {
+				font-size: 9px;
+				position: absolute;
+				bottom: 5px;
+				right: 56px;
+			}
+		}
+	}
+}
+		

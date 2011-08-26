@@ -1,0 +1,38 @@
+<h1>Listing blocked internships</h1>
+<%= notice %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Company name</th>
+    <th>Contact</th>
+    <th>Description</th>
+    <th>Field</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @internships.each do |internship| %>
+  <tr>
+    <td><%= link_to internship.title, internship %></td>
+    <td><%= internship.company_name %></td>
+    <td><%= internship.contact %></td>
+    <td><%= internship.description %></td>
+	<td>
+		<% internship.fields.each do |t| %>
+			<%= t.description %> / 
+		<% end %>
+	</td>
+	<td>
+		<%= link_to 'Unblock', "#{internship.id}/unblock" %>
+	</td>
+    <td><%= link_to 'Edit', edit_internship_path(internship) %></td>
+    <td><%= link_to 'Destroy', internship, :confirm => 'Are you sure?', :method => :delete %></td>
+	
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Internship List', internships_url %>

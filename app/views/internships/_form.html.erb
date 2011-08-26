@@ -1,0 +1,36 @@
+<%# encoding: utf-8 %>
+<%= form_for(@internship) do |f| %>
+  <% if @internship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@internship.errors.count, "error") %> prohibited this internship from being saved:</h2>
+
+      <ul>
+      <% @internship.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    Área: <br/>
+	<% for field in Field.all %>
+		<label>
+		<%= check_box_tag "internship[field_ids][]", field.id, @internship.fields.include?(field) %>
+		<%= field.description %>
+		</label>
+	<% end %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

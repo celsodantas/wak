@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @internship.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @internship.description %>
+</p>
+<p>
+  <b>Fields:</b>
+	<% @internship.fields.each do |t| %>
+		<%= t.description %> / 
+	<% end %>
+</p>
+
+<%= link_to 'Edit', edit_internship_path(@internship) %> |
+<%= link_to 'Back', internships_path %>
