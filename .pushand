@@ -1,2 +1,2 @@
 #! /bin/bash
-phd $0 wak-app wak-app
+phd $0 wak-app wak.celsodantas.com
