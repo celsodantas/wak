@@ -18700,3 +18700,35 @@ Started GET "/" for 127.0.0.1 at 2011-08-26 23:38:48 -0300
 Rendered internships/_internships.html.erb (29.2ms)
 Rendered internships/index.html.erb within layouts/application (33.1ms)
 Completed 200 OK in 53ms (Views: 38.2ms | ActiveRecord: 4.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/pacman/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:111)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-27 08:30:38 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (89.7ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (40.7ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (65.6ms)
+Rendered internships/index.html.erb within layouts/application (69.7ms)
+Completed 200 OK in 409ms (Views: 108.1ms | ActiveRecord: 130.3ms)
+
+
+Started POST "/internships" for 127.0.0.1 at 2011-08-27 08:30:48 -0300
+  Processing by InternshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BgMAaG7T9XAUnAxy1QNDrBRWAiYEKG8vBXdHlj0DMBk=", "internship"=>{"title"=>"oioi", "description"=>"oioiooi"}, "area"=>"oioioi"}
+  [1m[36mSQL (33.6ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (69.9ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (5.8ms)[0m  describe `internships`
+  [1m[36mAREL (31.7ms)[0m  [1mINSERT INTO `internships` (`title`, `description`, `created_at`, `updated_at`, `owner_hash`) VALUES ('oioi', 'oioiooi', '2011-08-27 11:30:48', '2011-08-27 11:30:48', '24vO4-j2PNmCC0dO2dfqeA')[0m
+  [1m[35mSQL (356.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/internships/list
+Completed 302 Found in 643ms
+
+
+Started GET "/internships/list" for 127.0.0.1 at 2011-08-27 08:30:48 -0300
+  Processing by InternshipsController#list as JS
+  [1m[36mSQL (11.8ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.7ms)[0m  SELECT `internships`.* FROM `internships` WHERE (description like '%%' OR title like '%%') ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (134.5ms)
+Rendered internships/list.html.erb (137.2ms)
+Completed 200 OK in 179ms (Views: 155.4ms | ActiveRecord: 510.6ms)
