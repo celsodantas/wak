@@ -1,9 +1,14 @@
 class InternshipsController < ApplicationController
+  before_filter :generate_cookie_hash
+  
+  def generate_cookie_hash
+    cookies[:hash] = SecureRandom.urlsafe_base64 if cookies[:hash] == nil
+  end
   
   # GET /internships
   # GET /internships.json
   def index
-    #@internships = Internship.all(:conditions => {:blocked => false})
+    p "user cookies " + cookies[:hash]
     if (params[:query])
       @internships = Internship.newer(params[:query])
     else
@@ -59,6 +64,7 @@ class InternshipsController < ApplicationController
   def create
     @internship = Internship.new(params[:internship])
     @internship.description.strip!
+    @internship.owner_hash = cookies[:hash]
 
     respond_to do |format|
       if @internship.save
@@ -77,9 +83,10 @@ class InternshipsController < ApplicationController
   def update
     params[:internship][:field_ids] ||= []
     @internship = Internship.find(params[:id])
-
+    
     respond_to do |format|
-      if @internship.update_attributes(params[:internship])
+      if @internship.owner_hash == cookies[:hash] and
+        @internship.update_attributes(params[:internship])
         format.html { redirect_to(@internship, :notice => 'Internship was successfully updated.') }
         format.json  { head :ok }
       else

@@ -6,7 +6,7 @@
 </div>
 <% @internships.each do |i| %>
 	<article class="internship" editing="false">
-		<% form_for i do -%>
+		<%= form_for i do -%>
 			<h1><%=i.title%></h1>
 			<div class="release-date"><%= i.updated_at.strftime("%d/%m/%y") %></div>
 			<div class="division"><div class="line"></div></div>
@@ -15,7 +15,8 @@
 					<p><%= des %></p>
 				<% end %>
 			</div>
-			<% if i.created_at > (Time.now - 15.minutes)  %>
+			<% if i.created_at > (Time.now - 15.minutes) and
+				  i.owner_hash == cookies[:hash] %>
 				<div class="time_ago_in_words">
 					<%= t time_ago_in_words(i.created_at) %> atr&aacute;s
 				</div>
