@@ -17,6 +17,7 @@ $(function () {
 			desc.val(desc.attr("original"));
 			
 			$("#box-add-internship").wakShow();
+			$("#box-add-internship").find("input[type='submit']").attr("disabled", "")
 		} else {
 			$(this).removeClass("pressed")
 			$("#box-add-internship").wakHide();
@@ -55,6 +56,8 @@ $(function () {
 				   ,'script');
 	
 			$("#box-add-internship").wakHide();
+			$("#btn-new-internship").removeClass("pressed")
+			$("#box-add-internship").find("input[type='submit']").attr("disabled", "disabled")
 		}
 	    return false;
 	})

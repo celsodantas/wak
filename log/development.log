@@ -18732,3 +18732,95 @@ Started GET "/internships/list" for 127.0.0.1 at 2011-08-27 08:30:48 -0300
 Rendered internships/_internships.html.erb (134.5ms)
 Rendered internships/list.html.erb (137.2ms)
 Completed 200 OK in 179ms (Views: 155.4ms | ActiveRecord: 510.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/pacman/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:111)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-27 09:05:00 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (43.0ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.8ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (73.4ms)
+Rendered internships/index.html.erb within layouts/application (94.8ms)
+Completed 200 OK in 351ms (Views: 125.7ms | ActiveRecord: 43.7ms)
+
+
+Started POST "/internships" for 127.0.0.1 at 2011-08-27 09:05:37 -0300
+  Processing by InternshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BgMAaG7T9XAUnAxy1QNDrBRWAiYEKG8vBXdHlj0DMBk=", "internship"=>{"title"=>"uyuyuuy", "description"=>"uyuyuyuy"}, "area"=>"uyuy"}
+  [1m[36mSQL (3.9ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (107.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (8.0ms)[0m  describe `internships`
+  [1m[36mAREL (17.8ms)[0m  [1mINSERT INTO `internships` (`title`, `description`, `created_at`, `updated_at`, `owner_hash`) VALUES ('uyuyuuy', 'uyuyuyuy', '2011-08-27 12:05:37', '2011-08-27 12:05:37', '24vO4-j2PNmCC0dO2dfqeA')[0m
+  [1m[35mSQL (19.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/internships/list
+Completed 302 Found in 233ms
+
+
+Started GET "/internships/list" for 127.0.0.1 at 2011-08-27 09:05:37 -0300
+  Processing by InternshipsController#list as JS
+  [1m[36mSQL (3.6ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.6ms)[0m  SELECT `internships`.* FROM `internships` WHERE (description like '%%' OR title like '%%') ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (172.9ms)
+Rendered internships/list.html.erb (175.2ms)
+Completed 200 OK in 212ms (Views: 196.0ms | ActiveRecord: 160.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-27 09:08:08 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (46.6ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.6ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (29.6ms)
+Rendered internships/index.html.erb within layouts/application (45.4ms)
+Completed 200 OK in 125ms (Views: 66.8ms | ActiveRecord: 47.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-27 09:08:10 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (8.0ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (36.1ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (48.7ms)
+Rendered internships/index.html.erb within layouts/application (54.6ms)
+Completed 200 OK in 136ms (Views: 61.9ms | ActiveRecord: 44.1ms)
+
+
+Started POST "/internships" for 127.0.0.1 at 2011-08-27 09:08:19 -0300
+  Processing by InternshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BgMAaG7T9XAUnAxy1QNDrBRWAiYEKG8vBXdHlj0DMBk=", "internship"=>{"title"=>"3u3u3u3", "description"=>"ueehuheuehurheurhe"}, "area"=>"3u3u"}
+  [1m[36mSQL (26.0ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (15.9ms)[0m  [1mdescribe `internships`[0m
+  [1m[35mAREL (38.0ms)[0m  INSERT INTO `internships` (`title`, `description`, `created_at`, `updated_at`, `owner_hash`) VALUES ('3u3u3u3', 'ueehuheuehurheurhe', '2011-08-27 12:08:19', '2011-08-27 12:08:19', '24vO4-j2PNmCC0dO2dfqeA')
+  [1m[36mSQL (41.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/internships/list
+Completed 302 Found in 190ms
+
+
+Started GET "/internships/list" for 127.0.0.1 at 2011-08-27 09:08:19 -0300
+  Processing by InternshipsController#list as JS
+  [1m[35mSQL (23.3ms)[0m  describe `fields_internships`
+  [1m[36mInternship Load (0.8ms)[0m  [1mSELECT `internships`.* FROM `internships` WHERE (description like '%%' OR title like '%%') ORDER BY updated_at DESC[0m
+Rendered internships/_internships.html.erb (38.9ms)
+Rendered internships/list.html.erb (41.1ms)
+Completed 200 OK in 104ms (Views: 62.4ms | ActiveRecord: 145.2ms)
+
+
+Started POST "/internships" for 127.0.0.1 at 2011-08-27 09:08:30 -0300
+  Processing by InternshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BgMAaG7T9XAUnAxy1QNDrBRWAiYEKG8vBXdHlj0DMBk=", "internship"=>{"title"=>"haha", "description"=>"aiure"}, "area"=>"hoho"}
+  [1m[35mSQL (3.3ms)[0m  describe `fields_internships`
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.5ms)[0m  describe `internships`
+  [1m[36mAREL (27.0ms)[0m  [1mINSERT INTO `internships` (`title`, `description`, `created_at`, `updated_at`, `owner_hash`) VALUES ('haha', 'aiure', '2011-08-27 12:08:31', '2011-08-27 12:08:31', '24vO4-j2PNmCC0dO2dfqeA')[0m
+  [1m[35mSQL (1.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/internships/list
+Completed 302 Found in 229ms
+
+
+Started GET "/internships/list" for 127.0.0.1 at 2011-08-27 09:08:31 -0300
+  Processing by InternshipsController#list as JS
+  [1m[36mSQL (16.1ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.6ms)[0m  SELECT `internships`.* FROM `internships` WHERE (description like '%%' OR title like '%%') ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (65.3ms)
+Rendered internships/list.html.erb (67.1ms)
+Completed 200 OK in 99ms (Views: 68.2ms | ActiveRecord: 16.7ms)
