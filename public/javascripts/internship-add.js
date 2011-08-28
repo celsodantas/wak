@@ -4,24 +4,29 @@ $(function () {
 		$("#btn-new-internship").removeClass("pressed")	
 	})
 
-	$("#btn-new-internship").click(function () {		
-		if (!$(this).hasClass("pressed")) {
-			$(this).addClass("pressed")
-			
-			var title = $("#box-add-internship input.title");
-			var area = $("#box-add-internship input.area");
-			var desc = $("#box-add-internship textarea.description");
-			
-			title.val(title.attr("original"));
-			area.val(area.attr("original"));
-			desc.val(desc.attr("original"));
-			
-			$("#box-add-internship").wakShow();
-			$("#box-add-internship").find("input[type='submit']").attr("disabled", "")
-		} else {
-			$(this).removeClass("pressed")
-			$("#box-add-internship").wakHide();
-		}
+	$("#btn-new-internship").toggle(function () {
+		var self = $(this);		
+
+		$(this).addClass("pressed")
+		
+		var title = $("#box-add-internship input.title");
+		var area = $("#box-add-internship input.area");
+		var desc = $("#box-add-internship textarea.description");
+		
+		title.val(title.attr("original"));
+		area.val(area.attr("original"));
+		desc.val(desc.attr("original"));
+		
+		
+		self.attr("disabled", "disabled")
+		$("#box-add-internship").wakShow(function () {self.attr("disabled", "");});
+		$("#box-add-internship").find("input[type='submit']").attr("disabled", "")
+	}, function () {
+		var self = $(this);	
+		self.removeClass("pressed")
+		
+		self.attr("disabled", "disabled")
+		$("#box-add-internship").wakHide(function () {self.attr("disabled", "");});
 	})
 
 	$.each($("#box-add-internship .input"), function () {
@@ -42,10 +47,15 @@ $(function () {
 		if ($(this).val() == "")
 			$(this).val($(this).attr("original"))
 			
-		if ($(this).val() != $(this).attr("original"))
-			$(this).addClass("has_content")
-		else
+		if ($(this).val() == $(this).attr("original")) {
 			$(this).removeClass("has_content")
+			$(this).removeClass("black-txt")
+			$(this).css("color", "")		// fixing animate
+			$(this).css("background-color", "")
+		} else {
+			$(this).addClass("has_content")
+			$(this).addClass("black-txt")
+		}
 	})
 
 	$("#internship_create").live("submit", function () {
@@ -68,14 +78,18 @@ $(function () {
 		var area = $("#box-add-internship input.area");
 		var desc = $("#box-add-internship textarea.description");
 		
+		var v = true;
+		
 		if (title.val() == title.attr("original")) {
 			title.animate({ backgroundColor: "#ffd5d5", color : "black"}, 1500);
-			return false; }
+			v = false;}
 		if (area.val() == area.attr("original")) {
-			return false; }
+			area.animate({ backgroundColor: "#ffd5d5", color : "black"}, 1500);
+			v = false; }
 		if (desc.val() == desc.attr("original")) {
-			return false; }
+			desc.animate({ backgroundColor: "#ffd5d5", color : "black"}, 1500);
+			v = false; }
 		
-		return true;
+		return v;
 	}
 })

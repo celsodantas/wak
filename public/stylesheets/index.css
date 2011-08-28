@@ -71,11 +71,11 @@ div.left-content {
       background: transparent;
       color: #6c6c6c; }
   div.left-content #btn-new-internship {
-    margin: auto;
-    margin-top: 60px;
+    background: url(/images/add-internship-sprite.png) -2px 0 no-repeat scroll transparent;
+    margin: 60px 0 0 141px;
     width: 275px;
     height: 57px;
-    background: url(/images/add-internship-sprite.png) -2px 0 no-repeat scroll transparent; }
+    border: 0; }
     div.left-content #btn-new-internship.pressed {
       background-position: -2px -75px !important; }
   div.left-content .footer {
@@ -109,7 +109,7 @@ div#box-add-internship {
   div#box-add-internship .arrow {
     background: url("/images/add-internship-box-sprite.png") no-repeat scroll -254px -68px transparent;
     height: 16px;
-    left: 266px;
+    left: 268px;
     position: absolute;
     top: 417px;
     width: 36px; }
@@ -172,6 +172,8 @@ div#box-add-internship {
           font-size: 12px; }
           div#box-add-internship .inner form fieldset input .has_content {
             color: black; }
+        div#box-add-internship .inner form fieldset .black-txt {
+          color: black; }
         div#box-add-internship .inner form fieldset textarea {
           font-family: Arial, sans-serif;
           color: #c6c6c6;
