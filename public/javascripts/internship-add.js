@@ -16,22 +16,31 @@ $(function () {
 	
 	function setDisabled (e) { e.attr("disabled", "disabled") }
 	function setEnabled (e)  { e.attr("disabled", "") }
-
-	$("#btn-new-internship").toggle(function () {
-		var self = $(this);		
+	
+	function showNewInternshipBox() {
+		var btn = $("#btn-new-internship");		
 		$(this).addClass("pressed")
 		
 		resetForm();
 		
-		setDisabled(self)
-		$("#box-add-internship").wakShow(function () { setEnabled(self) });
+		setDisabled(btn)
+		$("#box-add-internship").wakShow(function () { setEnabled(btn) });
 		$("#box-add-internship").find("input[type='submit']").attr("disabled", "")
-	}, function () {
-		var self = $(this);	
-		self.removeClass("pressed")
+	}
+	
+	function hideNewInternshipBox() {
+		var btn = $("#btn-new-internship");
+		btn.removeClass("pressed")
 		
-		setDisabled(self)
-		$("#box-add-internship").wakHide(function () { setEnabled(self) });
+		setDisabled(btn)
+		$("#box-add-internship").wakHide(function () { setEnabled(btn) });
+		$("#box-add-internship").find("input[type='submit']").attr("disabled", "disabled")
+	}
+
+	$("#btn-new-internship").toggle(function () {
+		showNewInternshipBox();
+	}, function () {
+		hideNewInternshipBox();
 	})
 
 	$.each($("#box-add-internship .input"), function () {
@@ -70,9 +79,7 @@ $(function () {
 					function (data) { $(".right-content .content").html(data)			}
 				   ,'script');
 	
-			$("#box-add-internship").wakHide();
-			$("#btn-new-internship").removeClass("pressed")
-			$("#box-add-internship").find("input[type='submit']").attr("disabled", "disabled")
+			hideNewInternshipBox();
 		}
 	    return false;
 	})
