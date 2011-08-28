@@ -19524,3 +19524,67 @@ Started GET "/" for 127.0.0.1 at 2011-08-28 09:48:17 -0300
 Rendered internships/_internships.html.erb (31.3ms)
 Rendered internships/index.html.erb within layouts/application (35.0ms)
 Completed 200 OK in 53ms (Views: 39.1ms | ActiveRecord: 3.8ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/pacman/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:111)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-28 09:55:27 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (3.4ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.5ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (94.7ms)
+Rendered internships/index.html.erb within layouts/application (98.8ms)
+Completed 200 OK in 204ms (Views: 103.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-28 09:55:29 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (43.7ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.5ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (32.0ms)
+Rendered internships/index.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 96ms (Views: 39.7ms | ActiveRecord: 44.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-28 09:56:49 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (3.2ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.5ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (30.4ms)
+Rendered internships/index.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 52ms (Views: 38.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-28 09:56:49 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (3.3ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.5ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (76.0ms)
+Rendered internships/index.html.erb within layouts/application (80.7ms)
+Completed 200 OK in 101ms (Views: 86.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-28 09:56:49 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (3.3ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.6ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (31.6ms)
+Rendered internships/index.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 59ms (Views: 43.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-28 09:56:49 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (3.2ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.6ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (33.5ms)
+Rendered internships/index.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 98ms (Views: 43.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-28 09:56:50 -0300
+  Processing by InternshipsController#index as HTML
+  [1m[36mSQL (3.3ms)[0m  [1mdescribe `fields_internships`[0m
+  [1m[35mInternship Load (0.4ms)[0m  SELECT `internships`.* FROM `internships` ORDER BY updated_at DESC
+Rendered internships/_internships.html.erb (67.8ms)
+Rendered internships/index.html.erb within layouts/application (71.6ms)
+Completed 200 OK in 90ms (Views: 75.9ms | ActiveRecord: 3.7ms)

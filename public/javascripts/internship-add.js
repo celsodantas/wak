@@ -3,12 +3,8 @@ $(function () {
 		$("#box-add-internship").wakHide();
 		$("#btn-new-internship").removeClass("pressed")	
 	})
-
-	$("#btn-new-internship").toggle(function () {
-		var self = $(this);		
-
-		$(this).addClass("pressed")
-		
+	
+	function resetForm() {
 		var title = $("#box-add-internship input.title");
 		var area = $("#box-add-internship input.area");
 		var desc = $("#box-add-internship textarea.description");
@@ -16,17 +12,26 @@ $(function () {
 		title.val(title.attr("original"));
 		area.val(area.attr("original"));
 		desc.val(desc.attr("original"));
+	}
+	
+	function setDisabled (e) { e.attr("disabled", "disabled") }
+	function setEnabled (e)  { e.attr("disabled", "") }
+
+	$("#btn-new-internship").toggle(function () {
+		var self = $(this);		
+		$(this).addClass("pressed")
 		
+		resetForm();
 		
-		self.attr("disabled", "disabled")
-		$("#box-add-internship").wakShow(function () {self.attr("disabled", "");});
+		setDisabled(self)
+		$("#box-add-internship").wakShow(function () { setEnabled(self) });
 		$("#box-add-internship").find("input[type='submit']").attr("disabled", "")
 	}, function () {
 		var self = $(this);	
 		self.removeClass("pressed")
 		
-		self.attr("disabled", "disabled")
-		$("#box-add-internship").wakHide(function () {self.attr("disabled", "");});
+		setDisabled(self)
+		$("#box-add-internship").wakHide(function () { setEnabled(self) });
 	})
 
 	$.each($("#box-add-internship .input"), function () {
