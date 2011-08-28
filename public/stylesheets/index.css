@@ -105,14 +105,28 @@ div#box-add-internship {
   position: fixed;
   top: 18px;
   left: 3px;
-  box-shadow: 1px t1px 34px #000; }
+  box-shadow: 1px 9px 47px black; }
   div#box-add-internship .arrow {
-    background: url("/images/add-internship-box-sprite.png") no-repeat scroll -277px -40px transparent;
-    height: 50px;
+    background: url("/images/add-internship-box-sprite.png") no-repeat scroll -254px -68px transparent;
+    height: 16px;
     left: 266px;
     position: absolute;
-    top: 396px;
-    width: 35px; }
+    top: 417px;
+    width: 36px; }
+  div#box-add-internship .south {
+    background: url("/images/shadow/s.png") repeat-x scroll 0 0 transparent;
+    height: 60px;
+    left: 1px;
+    position: absolute;
+    top: 417px;
+    width: 554px; }
+  div#box-add-internship .south-east {
+    background: url("/images/shadow/sw.png") repeat-x scroll 0 0 transparent;
+    height: 60px;
+    left: 1px;
+    position: absolute;
+    top: 417px;
+    width: 554px; }
   div#box-add-internship .btn-close {
     background: url("/images/add-internship-box-sprite.png") no-repeat scroll -206px -61px transparent;
     height: 30px;
