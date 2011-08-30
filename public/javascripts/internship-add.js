@@ -1,7 +1,6 @@
 $(function () {
 	$("#box-add-internship .btn-close").click(function () { 
-		$("#box-add-internship").wakHide();
-		$("#btn-new-internship").removeClass("pressed")	
+		$("#btn-new-internship").click();
 	})
 	
 	function resetForm() {
@@ -12,35 +11,53 @@ $(function () {
 		title.val(title.attr("original"));
 		area.val(area.attr("original"));
 		desc.val(desc.attr("original"));
+
+		title.removeClass("black-txt")
+		area.removeClass("black-txt")
+		desc.removeClass("black-txt")
 	}
 	
 	function setDisabled (e) { e.attr("disabled", "disabled") }
 	function setEnabled (e)  { e.attr("disabled", "") }
 	
-	function showNewInternshipBox() {
+	function showNewInternshipBox(after) {
 		var btn = $("#btn-new-internship");		
-		$(this).addClass("pressed")
+		var box = $("#box-add-internship");
 		
+		$(btn).addClass("pressed")
 		resetForm();
-		
 		setDisabled(btn)
-		$("#box-add-internship").wakShow(function () { setEnabled(btn) });
-		$("#box-add-internship").find("input[type='submit']").attr("disabled", "")
+		
+		box.wakShow(function () { 
+			setEnabled(btn); 
+			if (after) after() 
+		});
+		
+		box.find("input[type='submit']").attr("disabled", "")
 	}
 	
-	function hideNewInternshipBox() {
+	function hideNewInternshipBox(after) {
 		var btn = $("#btn-new-internship");
-		btn.removeClass("pressed")
+		var box = $("#box-add-internship");
 		
+		btn.removeClass("pressed")
 		setDisabled(btn)
-		$("#box-add-internship").wakHide(function () { setEnabled(btn) });
-		$("#box-add-internship").find("input[type='submit']").attr("disabled", "disabled")
+		
+		box.wakHide(function () { 
+			setEnabled(btn); 
+			if (after) after()
+		});
+		
+		box.find("input[type='submit']").attr("disabled", "disabled")
 	}
 
-	$("#btn-new-internship").toggle(function () {
-		showNewInternshipBox();
-	}, function () {
-		hideNewInternshipBox();
+	$("#btn-new-internship").click(function () {
+		var box = $("#box-add-internship");
+
+		if (box.is(":hidden"))
+			showNewInternshipBox();
+		else
+			hideNewInternshipBox();
 	})
 
 	$.each($("#box-add-internship .input"), function () {
@@ -71,15 +88,39 @@ $(function () {
 			$(this).addClass("black-txt")
 		}
 	})
+	
+	var counter = "#box-add-internship .char-counter span"
+	$("#box-add-internship textarea").simplyCountable({
+			counter: counter,
+			maxCount: 1500, strictMax: true})
+	$(counter).html(1500)	// Fixing view, so it shows 800 
+							// and not count with the example.
 
 	$("#internship_create").live("submit", function () {
+		var form = $(this);
+		var ajax = form.find(".ajax-loader");
+		var send_button = form.find("input[type=submit]");
+		var success_msg	= form.find(".done");
+		
+		send_button.hide();
+		ajax.show();
+		
 		if (valid()) {
 			$.post($(this).attr("action"), 
-				   $(this).serialize(), 
-					function (data) { $(".right-content .content").html(data)			}
-				   ,'script');
-	
-			hideNewInternshipBox();
+		    	   $(this).serialize(), 
+				   function (data) {
+				   		$(".right-content .content").html(data);
+				
+						ajax.hide();
+						success_msg.show()
+				
+						hideNewInternshipBox(function() {
+							success_msg.hide();
+							send_button.show();
+						});
+				   }
+		   		   ,'script');
+			
 		}
 	    return false;
 	})
