@@ -178,7 +178,7 @@ div#box-add-internship {
 					font-size: 15px; 
 					margin: 0 5px 0 0;
 					&.title { margin: 0 44px 0 0; }
-					&.area { margin: 0 49px 0 0; }
+					&.field { margin: 0 49px 0 0; }
 					&.description { margin: 0 14px 0 0; }
 				}
 				.points { float: left; margin: 0 11px 0 0;}
@@ -214,12 +214,19 @@ div#box-add-internship {
 				margin: 0px 0 0 301px
 			}
 			.ajax-loader {
-				background: url("/images/ajax-loader.gif") no-repeat scroll -9px 0 transparent;
-			    height: 16px;
-			    left: 155px;
-			    position: absolute;
-			    top: 305px;
-			    width: 180px;
+				background: url("/images/ajax-loader.gif") no-repeat scroll 0 0 transparent;
+				height: 24px;
+				left: 408px;
+				position: absolute;
+				top: 303px;
+				width: 56px;
+			}
+			.done {
+				left: 350px;
+				position: absolute;
+				top: 306px;
+				width: 148px;
+				font-size: 13px;
 			}
 			.has_focus {
 				color: #4a4a4a;
@@ -306,19 +313,24 @@ div.right-content {
 				
 			.release-date {  	/* INTERNSHIP */
 				font-family: Cursive;
-				font-size: 25px;
+				font-size: 21px;
 				color: gray;
 				position: absolute;
 				top: 8px; right: 15px;}
 				    	
 			.division {
-				width: 100%;}
-				
-			.division .line {
-					height: 1px;
-					background-color: #b0b0b1;
-					margin: 0 110px 0 19px;}
+				width: 100%;
+				.line {
+						height: 1px;
+						background-color: #b0b0b1;
+						margin: 0 110px 0 19px;}
+			}
 			
+			.fields {
+				font-size: 10px;
+				color: gray;
+				margin: 2px 0 -7px 24px
+			}
 			.edit,.save {
 				cursor: pointer;
 				text-decoration: underline;

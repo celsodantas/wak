@@ -9,12 +9,12 @@
   <b>Description:</b>
   <%= @internship.description %>
 </p>
-<p>
+<!-- <p>
   <b>Fields:</b>
 	<% @internship.fields.each do |t| %>
 		<%= t.description %> / 
 	<% end %>
-</p>
+</p> -->
 
 <%= link_to 'Edit', edit_internship_path(@internship) %> |
 <%= link_to 'Back', internships_path %>

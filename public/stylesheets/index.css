@@ -158,7 +158,7 @@ div#box-add-internship {
           margin: 0 5px 0 0; }
           div#box-add-internship .inner form fieldset label.title {
             margin: 0 44px 0 0; }
-          div#box-add-internship .inner form fieldset label.area {
+          div#box-add-internship .inner form fieldset label.field {
             margin: 0 49px 0 0; }
           div#box-add-internship .inner form fieldset label.description {
             margin: 0 14px 0 0; }
@@ -190,12 +190,18 @@ div#box-add-internship {
         width: 122px;
         margin: 0px 0 0 301px; }
       div#box-add-internship .inner form .ajax-loader {
-        background: url("/images/ajax-loader.gif") no-repeat scroll -9px 0 transparent;
-        height: 16px;
-        left: 155px;
+        background: url("/images/ajax-loader.gif") no-repeat scroll 0 0 transparent;
+        height: 24px;
+        left: 408px;
         position: absolute;
-        top: 305px;
-        width: 180px; }
+        top: 303px;
+        width: 56px; }
+      div#box-add-internship .inner form .done {
+        left: 350px;
+        position: absolute;
+        top: 306px;
+        width: 148px;
+        font-size: 13px; }
       div#box-add-internship .inner form .has_focus {
         color: #4a4a4a; }
 
@@ -268,17 +274,21 @@ div.right-content {
     div.right-content .content .internship .release-date {
       /* INTERNSHIP */
       font-family: Cursive;
-      font-size: 25px;
+      font-size: 21px;
       color: gray;
       position: absolute;
       top: 8px;
       right: 15px; }
     div.right-content .content .internship .division {
       width: 100%; }
-    div.right-content .content .internship .division .line {
-      height: 1px;
-      background-color: #b0b0b1;
-      margin: 0 110px 0 19px; }
+      div.right-content .content .internship .division .line {
+        height: 1px;
+        background-color: #b0b0b1;
+        margin: 0 110px 0 19px; }
+    div.right-content .content .internship .fields {
+      font-size: 10px;
+      color: gray;
+      margin: 2px 0 -7px 24px; }
     div.right-content .content .internship .edit, div.right-content .content .internship .save {
       cursor: pointer;
       text-decoration: underline;

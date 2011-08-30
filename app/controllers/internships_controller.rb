@@ -8,12 +8,7 @@ class InternshipsController < ApplicationController
   # GET /internships
   # GET /internships.json
   def index
-    p "user cookies " + cookies[:hash]
-    if (params[:query])
-      @internships = Internship.newer(params[:query])
-    else
-      @internships = Internship.order("updated_at DESC").all
-    end
+    @internships = Internship.newer(params[:query])
     
     respond_to do |format|
       format.html # index.html.erb
@@ -65,6 +60,11 @@ class InternshipsController < ApplicationController
     @internship = Internship.new(params[:internship])
     @internship.description.strip!
     @internship.owner_hash = cookies[:hash]
+    
+    fields = params[:fields].split(",")
+    fields.each do |desc|
+      @internship.fields << Field.new(:description => desc.strip)
+    end
 
     respond_to do |format|
       if @internship.save

@@ -26,7 +26,7 @@
 		<input type="button" id="btn-new-internship" enabled="true"/>
 		<div class="footer">
 			Desenvolvido por <a href="http://about.celsodantas.com" class="no-decoration">celsodantas.com</a>. Todos os direitos reservados  @ 2011<br/>
-			Em caso de dúvidas/problemas entre em <a href="javascript:;">contato</a>
+			Em caso de dúvidas/problemas entre em <a href="mailto:celsodantas@gmail.com">contato</a>
 		</div>
 		<div class="arrow"></div>
 	</div>
@@ -49,8 +49,8 @@
 					<input class="input title" type="text" name="internship[title]" value="ex: &quot;Escritório de Manuel Sá&quot;, &quot;Java Web&quot;" autocomplete="off">
 				</fieldset>
 				<fieldset>
-					<label for="area" class="area">Área</label><span class="points">::</span>
-					<input class="input area" type="text" name="area" value="ex: Arquitetura, Engenharia Civíl" autocomplete="off">
+					<label for="field" class="field">Área</label><span class="points">::</span>
+					<input class="input area" type="text" name="fields" value="ex: Arquitetura, Engenharia Civíl" autocomplete="off">
 				</fieldset>
 				<fieldset>
 					<label for="" class="description">Descrição</label><span class="points">::</span>
@@ -60,9 +60,10 @@ Bolsa: R$XXXX,00/mês
 Bairro: Rio Vermelho
 Contato: joao@email.com ou 9999-9999</textarea>
 				</fieldset>
-				<div class="char-counter">Contador: <span>0</span>/1000 letras</div>
+				<div class="char-counter"><span>500</span> letras restantes</div>
 				<input type="submit" class="btn-add" value=""/>
 				<div class="ajax-loader" style="display: none"></div>
+				<div class="done" style="display: none">Est&aacute;gio adicionado!</div>
 			<% end -%>
 		</div>
 		<!-- <div class="south"></div> -->

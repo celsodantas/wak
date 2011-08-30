@@ -10,6 +10,11 @@
 			<h1><%=i.title%></h1>
 			<div class="release-date"><%= i.updated_at.strftime("%d/%m/%y") %></div>
 			<div class="division"><div class="line"></div></div>
+			<div class="fields">
+				<% i.fields.each do |f| %> 
+					<%= f.description %>, 
+				<% end %>
+			</div>
 			<div class="description">
 				<% i.description.split("\n").each do |des| %>
 					<p><%= des %></p>
