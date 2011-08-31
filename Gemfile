@@ -5,6 +5,7 @@ gem "sass"
 
 gem "sqlite3"
 gem "mysql2", "~> 0.2.6"
+gem "will_paginate"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

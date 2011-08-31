@@ -1,9 +1,11 @@
 <div class="header">
 	<h1>Listando todas as &aacute;reas</h1>					
-	<% if params[:query] != "" %>
-		<a id="remove-filter" href="javascript:;">mostrar todas as &aacute;reas</a>
+	<% if params[:query] != nil %>
+		<a id="remove-filter" href="<%= internships_path %>">mostrar todas as &aacute;reas</a>
 	<% end %>
+	
 </div>
+<%= will_paginate @internships %>
 <% @internships.each do |i| %>
 	<article class="internship" editing="false">
 		<%= form_for i do -%>

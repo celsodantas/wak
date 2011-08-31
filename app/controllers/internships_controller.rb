@@ -8,8 +8,7 @@ class InternshipsController < ApplicationController
   # GET /internships
   # GET /internships.json
   def index
-    @internships = Internship.newer(params[:query])
-    
+    @internships = Internship.newer(params[:query]).paginate(:page => params[:page], :per_page => 10)
     respond_to do |format|
       format.html # index.html.erb
       format.json  { render :json => @internships }
@@ -19,7 +18,7 @@ class InternshipsController < ApplicationController
   # GET /internships/list
   # renders _internships partial only
   def list
-    @internships = Internship.newer("")
+    @internships = Internship.newer(params[:query]).paginate(:page => params[:page], :per_page => 10)
     
     respond_to do |format|
       format.html  {render :layout => false }       # index.html.erb

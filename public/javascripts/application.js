@@ -13,6 +13,11 @@ $(function() {
 	
 	var search_erase_btn = $("#txt-search .erase-btn");
 	
+	$("#query-form").submit(function() {
+		var query = $.trim( $("#query").val() );
+		if (query == "") return false;
+	})
+	
 	$("#query").keyup(function() {
 		var v = $.trim($(this).val());
 		if (v.length > 0)
@@ -26,8 +31,7 @@ $(function() {
 	
 	search_erase_btn.click(function () {
 		$("#query").val("");
-		$(this).parents("form").submit();
-		$(this).hide();
+		window.location = "internships";
 	})
 	
 	$("#remove-filter").click(function() {

@@ -242,7 +242,19 @@ div.right-content {
 	margin-left: $left_panel_width;
 	min-height: 800px;
 	
-	
+	.pagination {
+		height: 2px; 
+		margin: -27px 43px 0 0; 
+		font-size: 12px; 
+		color: white; 
+		float:  right;
+		.disabled {
+			color: gray;
+		}
+		a {
+			color: white;
+		}
+	}
 	.pad {
 		float:left; 
 		width:500px; }
@@ -273,6 +285,7 @@ div.right-content {
 				font-weight: 100;
 				padding: 15px 0 0 20px; }
 			#remove-filter {
+				color: gray;
 				font-size: 12px;
 				position: absolute;
 				right: 20px;
