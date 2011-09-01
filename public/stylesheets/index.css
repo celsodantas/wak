@@ -26,13 +26,13 @@ div.left-content {
   height: 100%;
   float: left;
   width: 563px;
-  background: url(/images/bg-purple.jpg) no-repeat scroll -163px -65px #9b2eb3;
+  background: url("/images/bg-purple.jpg") no-repeat scroll -140px -77px #9b2eb3;
   box-shadow: 5px 0 15px #010; }
   div.left-content .tag {
     position: absolute;
     top: 0;
     left: 0;
-    background: url(/images/topleft-tag.png) no-repeat scroll transparent;
+    background: url("/images/topleft-tag.png") no-repeat scroll transparent;
     width: 107px;
     height: 107px; }
   div.left-content .logo {
@@ -41,14 +41,14 @@ div.left-content {
     background-color: red;
     width: 388px;
     height: 193px;
-    background: url(/images/logo.png) no-repeat scroll transparent; }
+    background: url("/images/logo.png") no-repeat scroll transparent; }
   div.left-content #txt-search {
     background-color: red;
     margin: auto;
     margin-top: 60px;
     width: 368px;
     height: 31px;
-    background: url(/images/search-sprite.png) -16px 0 no-repeat scroll transparent; }
+    background: url("/images/search-sprite.png") -16px 0 no-repeat scroll transparent; }
     div.left-content #txt-search .magnifier {
       float: left;
       width: 30px;
@@ -166,10 +166,12 @@ div#box-add-internship {
           float: left;
           margin: 0 11px 0 0; }
         div#box-add-internship .inner form fieldset input {
-          font-family: Arial, sans-serif;
-          color: #c6c6c6;
-          width: 302px;
-          font-size: 12px; }
+          border: 0 none;
+          color: #C6C6C6;
+          font-family: Arial,sans-serif;
+          font-size: 12px;
+          height: 19px;
+          width: 302px; }
           div#box-add-internship .inner form fieldset input .has_content {
             color: black; }
         div#box-add-internship .inner form fieldset .black-txt {
@@ -179,7 +181,8 @@ div#box-add-internship {
           color: #c6c6c6;
           font-size: 13px;
           height: 124px;
-          width: 301px; }
+          width: 302px;
+          border: 0 none; }
       div#box-add-internship .inner form .char-counter {
         font-size: 10px;
         margin: -10px 0 0 112px; }
@@ -212,7 +215,7 @@ div.right-content {
   min-height: 800px; }
   div.right-content .pagination {
     height: 2px;
-    margin: -27px 43px 0 0;
+    margin: -27px 57px 0 0;
     font-size: 12px;
     color: white;
     float: right; }
@@ -245,7 +248,7 @@ div.right-content {
       div.right-content .content .header h1 {
         font-size: 18px;
         font-weight: 100;
-        padding: 15px 0 0 20px; }
+        padding: 16px 0 0 20px; }
       div.right-content .content .header #remove-filter {
         color: gray;
         font-size: 12px;
@@ -300,6 +303,8 @@ div.right-content {
       font-size: 10px;
       color: gray;
       margin: 2px 0 -7px 24px; }
+      div.right-content .content .internship .fields a {
+        color: gray; }
     div.right-content .content .internship .edit, div.right-content .content .internship .save {
       cursor: pointer;
       text-decoration: underline;

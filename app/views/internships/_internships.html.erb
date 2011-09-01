@@ -14,7 +14,9 @@
 			<div class="division"><div class="line"></div></div>
 			<div class="fields">
 				<% i.fields.each do |f| %> 
-					<%= f.description %>, 
+					<%= link_to f.description, :controller => "internships", :query => f.description %>
+					<% if f != i.fields.last %>,
+					<% end %>
 				<% end %>
 			</div>
 			<div class="description">

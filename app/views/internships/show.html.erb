@@ -1,20 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @internship.title %>
-</p>
+<article class="internship" editing="false">
+	<%= form_for @internship do -%>
+		<h1><%=@internship.title%></h1>
+		<div class="release-date"><%= @internship.updated_at.strftime("%d/%m/%y") %></div>
+		<div class="division"><div class="line"></div></div>
+		<div class="fields">
+			<% @internship.fields.each do |f| %> 
+				<%= f.description %>, 
+			<% end %>
+		</div>
+		<div class="description">
+			<% @internship.description.split("\n").each do |des| %>
+				<p><%= des %></p>
+			<% end %>
+		</div>
+		<% if @internship.created_at > (Time.now - 15.minutes) and
+			  @internship.owner_hash == cookies[:hash] %>
+			<div class="time_ago_in_words">
+				<%= time_ago_in_words(@internship.created_at) %> atr&aacute;s
+			</div>
+			<a class="edit">editar</a>
+		<% end %>
+	<% end -%>
+</article>
 
-<p>
-  <b>Description:</b>
-  <%= @internship.description %>
-</p>
-<!-- <p>
-  <b>Fields:</b>
-	<% @internship.fields.each do |t| %>
-		<%= t.description %> / 
-	<% end %>
-</p> -->
-
-<%= link_to 'Edit', edit_internship_path(@internship) %> |
-<%= link_to 'Back', internships_path %>

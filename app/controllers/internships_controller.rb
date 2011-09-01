@@ -1,27 +1,27 @@
 class InternshipsController < ApplicationController
   before_filter :generate_cookie_hash
+  before_filter :is_owner, :only => :update
   
   def generate_cookie_hash
     cookies[:hash] = SecureRandom.urlsafe_base64 if cookies[:hash] == nil
   end
   
-  # GET /internships
-  # GET /internships.json
-  def index
-    @internships = Internship.newer(params[:query]).paginate(:page => params[:page], :per_page => 10)
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json  { render :json => @internships }
+  def is_owner
+    internship = Internship.find(params[:id])
+    if cookies[:hash] == internship.owner_hash
+      true
+    else
+      false
     end
   end
   
-  # GET /internships/list
-  # renders _internships partial only
-  def list
-    @internships = Internship.newer(params[:query]).paginate(:page => params[:page], :per_page => 10)
+  # GET /internships
+  # GET /internships.json
+  def index
+    @internships = Internship.newer(params).paginate(:page => params[:page], :per_page => 10)
     
     respond_to do |format|
-      format.html  {render :layout => false }       # index.html.erb
+      format.html # index.html.erb
       format.json  { render :json => @internships }
     end
   end
@@ -32,7 +32,7 @@ class InternshipsController < ApplicationController
     @internship = Internship.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html  {render :layout => false}         # show.html.erb
       format.json  { render :json => @internship }
     end
   end
@@ -46,11 +46,6 @@ class InternshipsController < ApplicationController
       format.html # new.html.erb
       format.json  { render :json => @internship }
     end
-  end
-
-  # GET /internships/1/edit
-  def edit
-    @internship = Internship.find(params[:id])
   end
 
   # POST /internships
@@ -67,8 +62,8 @@ class InternshipsController < ApplicationController
 
     respond_to do |format|
       if @internship.save
-        format.html { redirect_to :action => :list }
-        #format.html { redirect_to(@internship, :notice => 'Internship was successfully created.') }
+        #format.html { redirect_to :action => :list } # now using default
+        format.html { redirect_to(@internship) }
         format.json  { render :json => @internship, :status => :created, :location => @internship }
       else
         format.html { render :action => "new" }

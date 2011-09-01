@@ -2,12 +2,14 @@ class Internship < ActiveRecord::Base
   has_and_belongs_to_many :fields
   before_save :save_or_use_fields
   
-  scope :newer, lambda { |filter| 
-    if filter
-      filter = "%"+filter+"%"
-      where("description like ? OR title like ?", filter, filter).order("created_at DESC") 
+  scope :newer, lambda { |params| 
+    if params[:query]
+      filter = "%"+params[:query]+"%"
+      includes(:fields)
+        .where("internships.description like ? OR title like ? OR fields.description like ?", filter, filter, filter)
+        .order("internships.created_at DESC") 
     else
-      order("created_at DESC") 
+      includes(:fields).order("created_at DESC") 
     end
   }
   

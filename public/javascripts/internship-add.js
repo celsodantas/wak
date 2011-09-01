@@ -109,7 +109,7 @@ $(function () {
 			$.post($(this).attr("action"), 
 		    	   $(this).serialize(), 
 				   function (data) {
-				   		$(".right-content .content").html(data);
+						addInternshipInView(data);
 				
 						ajax.hide();
 						success_msg.show()
@@ -118,12 +118,35 @@ $(function () {
 							success_msg.hide();
 							send_button.show();
 						});
-				   }
-		   		   ,'script');
+				   });
 			
 		}
 	    return false;
 	})
+	
+	function addInternshipInView(internship) {
+		var i = internship;
+		scrollToTop(function() {
+			internship = $(internship).css("display", "none");
+
+			addOnTop(internship);
+			$(internship).slideDown(1000);
+
+			removeLast();
+		});
+	}
+	
+	function scrollToTop(exec_after) {
+		$('html').animate({ scrollTop: 0 }, 1000, exec_after);
+	}
+	
+	function addOnTop(internship) {
+		$(".right-content .content article:first").before(internship);
+	}
+	
+	function removeLast () {
+		$(".right-content .content article:last").remove();
+	}
 	
 	var $form_error = "";
 	function valid() {
