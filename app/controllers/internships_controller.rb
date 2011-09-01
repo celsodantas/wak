@@ -53,7 +53,7 @@ class InternshipsController < ApplicationController
   def create
     @internship = Internship.new(params[:internship])
     @internship.description.strip!
-    @internship.owner_hash = cookies[:hash]
+    @internship.owner_hash = cookies[:hash] 
     
     fields = params[:fields].split(",")
     fields.each do |desc|
