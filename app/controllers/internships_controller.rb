@@ -51,10 +51,12 @@ class InternshipsController < ApplicationController
 
     respond_to do |format|
       if @internship.save
-        format.html { redirect_to @internship }
-        format.json  { render :json => @internship, :status => :created, :location => @internship }
+        #format.html { redirect_to @internship }
+        format.js
+        #format.json  { render :json => @internship, :status => :created, :location => @internship }
       else
-        format.html  { render :json => @internship.errors, :status => :unprocessable_entity }
+        format.js {render :action => :create_error }
+        #format.html  { render :json => @internship.errors, :status => :unprocessable_entity }
       end
     end 
   end
@@ -89,23 +91,4 @@ class InternshipsController < ApplicationController
     end
   end
   
-  def blocked
-    @internships = Internship.all(:conditions => {:blocked => true})
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json  { render :json => @internships }
-    end
-  end
-  
-  def unblock
-    @internship = Internship.find(params[:id])
-    @internship.blocked = false
-    @internship.save!
-    
-    respond_to do |format|
-      format.html { redirect_to(internships_url) }
-      format.json  { head :ok }
-    end
-  end
 end
