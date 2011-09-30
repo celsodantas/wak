@@ -38,38 +38,7 @@
 		</div>
 	</div>
 	
-	<div id="box-add-internship" style="display: none">
-		<div class="btn-close"></div>
-		<div class="inner">
-			<div class="header"></div>
-			<%= form_tag internships_path, :id => "internship_create" do %>
-				<fieldset>
-					<label for="title" class="title">Título</label><span class="points">::</span>
-					<input class="input title" type="text" name="internship[title]" value="ex: &quot;Escritório de Manuel Sá&quot;, &quot;Java Web&quot;" autocomplete="off">
-				</fieldset>
-				<fieldset>
-					<label for="field" class="field">Área</label><span class="points">::</span>
-					<input class="input area" type="text" name="fields" value="ex: Arquitetura, Engenharia Civíl" autocomplete="off">
-				</fieldset>
-				<fieldset>
-					<label for="" class="description">Descrição</label><span class="points">::</span>
-					<textarea class="input description" autocomplete="off" name="internship[description]">ex: Estudante de Arquitetura a partir do 4º semestre com conhecimento em AutoCAD e desejando trabalhar em projetos urbanisticos.
-
-Bolsa: R$XXXX,00/mês
-Bairro: Rio Vermelho
-Contato: joao@email.com ou 9999-9999</textarea>
-				</fieldset>
-				<div class="char-counter"><span>500</span> letras restantes</div>
-				<div id="errors"></div>
-				<input type="submit" class="btn-add" value=""/>
-				<div class="ajax-loader" style="display: none"></div>
-				<div class="done" style="display: none">Est&aacute;gio adicionado!</div>
-			<% end -%>
-		</div>
-		<!-- <div class="south"></div> -->
-		<!-- <div class="south-east"></div> -->
-		<div class="arrow"></div>
-	</div>
+	<%= render 'form'%>
 
 </body>
 </html>
