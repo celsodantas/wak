@@ -1,44 +1,5 @@
-<div class="header">
-	<h1 class="text-shadow">Listando todas as &aacute;reas</h1>					
-	<% if params[:query] != nil %>
-		<a id="remove-filter" href="<%= internships_path %>">mostrar todas as &aacute;reas</a>
-	<% end %>
-	
-</div>
-<%= will_paginate @internships %>
-<% @internships.each do |i| %>
-	<article class="internship" editing="false">
-		<%= form_for i do -%>
-			<h1><%=i.title%></h1>
-			<div class="release-date"><%= i.updated_at.strftime("%d/%m/%y") %></div>
-			<div class="division"><div class="line"></div></div>
-			<div class="fields">
-				<% i.fields.each do |f| %> 
-					<%= link_to f.description, :controller => "internships", :query => f.description %>
-					<% if f != i.fields.last %>,
-					<% end %>
-				<% end %>
-			</div>
-			<div class="description">
-				<% i.description.split("\n").each do |des| %>
-					<p><%= des %></p>
-				<% end %>
-			</div>
-			<% if i.created_at > (Time.now - 15.minutes) and
-				  i.owner_hash == cookies[:hash] %>
-				<div class="time_ago_in_words">
-					<%= time_ago_in_words(i.created_at) %> atr&aacute;s
-				</div>
-				<a class="edit">editar</a>
-			<% end %>
-		<% end -%>
-	</article>
-<%end%>
 
-<% if @internships.length == 0 %>
-	<article class="internship">
-		<p style="padding-top: 23px">
-			Não foi encontrado nenhum estágio para esse critério de busca.
-		</p>
-	</article>
-<% end %>
+<%= will_paginate @internships %>
+<% @internships.each do |internship| %>
+	<%= render internship %>
+<%end%>
