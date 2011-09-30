@@ -2,7 +2,7 @@
 <div class="header">
 	<h1 class="text-shadow">Listando todas as &aacute;reas</h1>					
 	<% if params[:query] != nil %>
-		<a id="remove-filter" href="<%= internships_path %>">mostrar todas as &aacute;reas</a>
+		<span class="txt">Filtrando por: <%=params[:query]%> - <a id="remove-filter" href="<%= internships_path %>">remover filtro</a></span>
 	<% end %>
 	
 </div>
