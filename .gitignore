@@ -6,3 +6,4 @@ tmp/*
 .webbynode
 public/assets
 .idea
+Gemfile.lock

@@ -11,9 +11,7 @@
 			<% end %>
 		</div>
 		<div class="description">
-			<% internship.description.split("\n").each do |des| %>
-				<p><%= des %></p>
-			<% end %>
+			<%= markdown(internship.description) %>
 		</div>
 		<% if internship.created_at > (Time.now - 15.minutes) and
 			  internship.owner_hash == cookies[:hash] %>
