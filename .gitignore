@@ -4,3 +4,5 @@ log/*
 tmp/*
 .sass-cache/
 .webbynode
+public/assets
+.idea
