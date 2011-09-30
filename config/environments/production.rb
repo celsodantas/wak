@@ -46,4 +46,15 @@ EstagioRApp::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  # Compress JavaScripts and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline if a precompiled asset is missed
+  # SHould be 'true', but just to make precompile work, Rails 3.1 issue
+  # waiting Rails 3.1.1 comes out
+  config.assets.compile = true 
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
 end

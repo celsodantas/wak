@@ -12,13 +12,15 @@ $(function () {
 		area.val(area.attr("original"));
 		desc.val(desc.attr("original"));
 
-		title.removeClass("black-txt")
-		area.removeClass("black-txt")
-		desc.removeClass("black-txt")
+		title.removeClass("black-txt");
+		area.removeClass("black-txt");
+		desc.removeClass("black-txt");
+		
+		$("#errors").html("")
 	}
 	
 	function setDisabled (e) { e.attr("disabled", "disabled") }
-	function setEnabled (e)  { e.attr("disabled", "") }
+	function setEnabled (e)  { e.removeAttr("disabled") }
 	
 	function showNewInternshipBox(after) {
 		var btn = $("#btn-new-internship");		
@@ -33,19 +35,19 @@ $(function () {
 			if (after) after() 
 		});
 		
-		box.find("input[type='submit']").attr("disabled", "")
+		box.find("input[type='submit']").removeAttr("disabled")
 	}
 	
 	function hideNewInternshipBox(after) {
 		var btn = $("#btn-new-internship");
 		var box = $("#box-add-internship");
 		
-		btn.removeClass("pressed")
-		setDisabled(btn)
+		btn.removeClass("pressed");
+		setDisabled(btn);
 		
 		box.wakHide(function () { 
 			setEnabled(btn); 
-			if (after) after()
+			if (after) after();
 		});
 		
 		box.find("input[type='submit']").attr("disabled", "disabled")
@@ -106,23 +108,35 @@ $(function () {
 		ajax.show();
 		
 		if (valid()) {
-			$.post($(this).attr("action"), 
-		    	   $(this).serialize(), 
-				   function (data) {
-						addInternshipInView(data);
+			post($(this).attr("action"), 
+		    	 $(this).serialize(), 
+				 function (data) {
+					addInternshipInView(data);
 				
-						ajax.hide();
-						success_msg.show()
+					ajax.hide();
+					success_msg.show();
 				
-						hideNewInternshipBox(function() {
-							success_msg.hide();
-							send_button.show();
-						});
-				   });
+					hideNewInternshipBox(function() {
+						success_msg.hide();
+						send_button.show();
+					});
+				}, function (err) {
+					var errors = $.parseJSON(err.responseText);
+					for(var e in errors) {
+						$("#errors").html(errors[e][0])
+					}
+					
+					ajax.hide();
+					send_button.show();
+				});
 			
 		}
 	    return false;
 	})
+	
+	function post(url, data, onsucess, onerror) {
+		$.ajax({type: 'POST', url: url, data: data, success: onsucess, error: onerror })
+	}
 	
 	function addInternshipInView(internship) {
 		var i = internship;

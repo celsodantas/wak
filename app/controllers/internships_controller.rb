@@ -37,17 +37,6 @@ class InternshipsController < ApplicationController
     end
   end
 
-  # GET /internships/new
-  # GET /internships/new.xml
-  def new
-    @internship = Internship.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json  { render :json => @internship }
-    end
-  end
-
   # POST /internships
   # POST /internships.json
   def create
@@ -62,12 +51,10 @@ class InternshipsController < ApplicationController
 
     respond_to do |format|
       if @internship.save
-        #format.html { redirect_to :action => :list } # now using default
-        format.html { redirect_to(@internship) }
+        format.html { redirect_to @internship }
         format.json  { render :json => @internship, :status => :created, :location => @internship }
       else
-        format.html { render :action => "new" }
-        format.json  { render :json => @internship.errors, :status => :unprocessable_entity }
+        format.html  { render :json => @internship.errors, :status => :unprocessable_entity }
       end
     end 
   end

@@ -1,7 +1,7 @@
 $left_panel_width: 563px;
 
 body {
-	background: url(/images/fabric-black-bg.png) repeat left top; 
+	background: image_url("fabric-black-bg.png") repeat left top; 
 }
 
 html, body { 
@@ -9,7 +9,7 @@ html, body {
 	margin: 0px; 
 	height: 100%; 
 	font-family: helvetica,clean,sans-serif; 
-	font-weight: 100}
+	font-weight: 100;}
 
 a {
 	color: black;
@@ -21,18 +21,22 @@ a {
 	text-decoration: none;
 }
 
-div.left-content {  	background-color: red;
+.text-shadow {
+	text-shadow: 0 1px 0 white;
+}
+
+div.left-content { 
 	z-index: 50;
 	position: fixed;
 	height: 100%;
 	float: left;
 	width: $left_panel_width; 
-	background: url("/images/bg-purple.jpg") no-repeat scroll -140px -77px #9B2EB3;
+	background: image_url("bg-purple.jpg") no-repeat scroll -140px -77px #9B2EB3;
 	box-shadow: 5px 0 15px #010;
 	.tag {
 		position: absolute;
 		top: 0; left: 0;
-		background: url("/images/topleft-tag.png")  no-repeat scroll transparent;
+		background: image_url("topleft-tag.png")  no-repeat scroll transparent;
 		width: 107px;
 		height: 107px;
 	}
@@ -42,26 +46,26 @@ div.left-content {  	background-color: red;
 		background-color: red;
 		width: 388px;
 		height: 193px;
-		background: url("/images/logo.png")  no-repeat scroll transparent;
+		background: image_url("logo.png")  no-repeat scroll transparent;
 	}
 	#txt-search { background-color: red;
 		margin:auto;
 		margin-top: 60px;
 		width: 368px;
 		height: 31px;
-		background: url("/images/search-sprite.png") -16px 0 no-repeat scroll transparent;
+		background: image_url("search-sprite.png") -16px 0 no-repeat scroll transparent;
 		.magnifier {
 			float: left;
 			width: 30px;
 			height: 30px;
-			background: url(/images/search-sprite.png) -325px -33px no-repeat scroll transparent;
+			background: image_url("search-sprite.png") -325px -33px no-repeat scroll transparent;
 		}
 		.erase-btn {
 			float: right;
 			right: 0px;
 			width: 30px;
 			height: 30px;
-			background: url(/images/search-sprite.png) -357px -32px  no-repeat scroll transparent;
+			background: image_url("search-sprite.png") -357px -32px  no-repeat scroll transparent;
 		}
 		input {
 			border: 0;
@@ -76,7 +80,7 @@ div.left-content {  	background-color: red;
 		}	
 	}
 	#btn-new-internship {
-		background: url(/images/add-internship-sprite.png) -2px 0 no-repeat scroll transparent;
+		background: image_url("add-internship-sprite.png") -2px 0 no-repeat scroll transparent;
 		margin:60px 0 0 141px;
 		width: 275px;
 		height: 57px;
@@ -104,13 +108,13 @@ div.left-content {  	background-color: red;
 		left: $left_panel_width;
 		width: 16px;
 		height: 32px;
-		background: url(/images/arrow.png)  no-repeat scroll transparent;
+		background: image_url("arrow.png")  no-repeat scroll transparent;
 		z-index: 500;
 	}
 }
 
 div#box-add-internship {
-	background: url(/images/add-internship-box-sprite.png)  no-repeat scroll transparent;
+	background: image_url("add-internship-box-sprite.png")  no-repeat scroll transparent;
 	
 	height: 417px;
 	width: 555px;	
@@ -121,7 +125,7 @@ div#box-add-internship {
 	left: 3px;
 	box-shadow: 1px 9px 47px black;
 	.arrow {
-		background: url("/images/add-internship-box-sprite.png") no-repeat scroll -254px -68px transparent;
+		background: image_url("add-internship-box-sprite.png") no-repeat scroll -254px -68px transparent;
 	    height: 16px;
 	    left: 268px;
 	    position: absolute;
@@ -129,7 +133,7 @@ div#box-add-internship {
 	    width: 36px;
 	}
 	.south {
-		background: url("/images/shadow/s.png") repeat-x scroll 0 0 transparent;
+		background: image_url("shadow/s.png") repeat-x scroll 0 0 transparent;
 		height: 60px;
 	    left: 1px;
 	    position: absolute;
@@ -137,7 +141,7 @@ div#box-add-internship {
 	    width: 554px;
 	}
 	.south-east {
-		background: url("/images/shadow/sw.png") repeat-x scroll 0 0 transparent;
+		background: image_url("shadow/sw.png") repeat-x scroll 0 0 transparent;
 		height: 60px;
 	    left: 1px;
 	    position: absolute;
@@ -145,7 +149,7 @@ div#box-add-internship {
 	    width: 554px;
 	}
 	.btn-close {
-		background: url("/images/add-internship-box-sprite.png") no-repeat scroll -206px -61px transparent;
+		background: image_url("add-internship-box-sprite.png") no-repeat scroll -206px -61px transparent;
 	    height: 30px;
 	    position: absolute;
 	    right: -10px;
@@ -153,7 +157,7 @@ div#box-add-internship {
 	    width: 29px;
 	}
 	.inner { 
-		background: url(/images/bg-add-internship-box.png)  no-repeat scroll black;
+		background: image_url("bg-add-internship-box.png")  no-repeat scroll black;
 		height: 364px;
 		width: 502px;
 		position: absolute;
@@ -161,7 +165,7 @@ div#box-add-internship {
 		left: 27px;
 		
 		.header {
-			background: url(/images/add-internship-box-sprite.png) -57px -100px no-repeat scroll transparent;
+			background: image_url("add-internship-box-sprite.png") -57px -100px no-repeat scroll transparent;
 			width: 422px;
 			height: 38px;
 			margin: 15px auto;
@@ -211,13 +215,13 @@ div#box-add-internship {
 			}
 			.btn-add {
 				border:0;
-				background: url("/images/add-internship-box-sprite.png") no-repeat scroll -61px -59px transparent;
+				background: image_url("add-internship-box-sprite.png") no-repeat scroll -61px -59px transparent;
 				height: 39px;
 				width: 122px;
 				margin: 0px 0 0 301px
 			}
 			.ajax-loader {
-				background: url("/images/ajax-loader.gif") no-repeat scroll 0 0 transparent;
+				background: image_url("ajax-loader.gif") no-repeat scroll 0 0 transparent;
 				height: 24px;
 				left: 408px;
 				position: absolute;
@@ -230,6 +234,13 @@ div#box-add-internship {
 				top: 306px;
 				width: 148px;
 				font-size: 13px;
+			}
+			#errors {
+				position: absolute;
+				top: 294px;	left: 155px;
+				font-size: 10px;
+				width: 128px;
+				color: #DC0000;
 			}
 			.has_focus {
 				color: #4a4a4a;
@@ -286,7 +297,7 @@ div.right-content {
 			h1 {
 				font-size: 18px;
 				font-weight: 100;
-				padding: 16px 0 0 20px; }
+				padding: 14px 0 0 20px; }
 			#remove-filter {
 				color: gray;
 				font-size: 12px;

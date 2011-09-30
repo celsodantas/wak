@@ -1,11 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
-gem "sass"
+gem 'rails', '3.1'
 
 gem "sqlite3"
-gem "mysql2", "~> 0.2.6"
+gem "mysql2"
 gem "will_paginate"
+
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
+
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

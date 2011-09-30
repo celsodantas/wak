@@ -2,3 +2,5 @@ config/database.yml
 .DS_Store
 log/*
 tmp/*
+.sass-cache/
+.webbynode

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wak - Seu próximo estágio, você encontra aqui!</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all %>
-  <%= csrf_meta_tag %>
+  <title>Wak - Seu próximo estágio, você encontra aqui!</title> 
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
   <script type="text/javascript">
 	  var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-25307154-1']); _gaq.push(['_trackPageview']);
 	  (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
@@ -23,7 +22,7 @@
 				<input type="text" name="query" value="<%=params[:query]%>" id="query" autocomplete="off">
 			<% end -%>
 		</div>
-		<input type="button" id="btn-new-internship" enabled="true"/>
+		<input type="button" id="btn-new-internship"/>
 		<div class="footer">
 			Desenvolvido por <a href="http://about.celsodantas.com" class="no-decoration">celsodantas.com</a>. Todos os direitos reservados  @ 2011<br/>
 			Em caso de dúvidas/problemas entre em <a href="mailto:celsodantas@gmail.com">contato</a>
@@ -61,6 +60,7 @@ Bairro: Rio Vermelho
 Contato: joao@email.com ou 9999-9999</textarea>
 				</fieldset>
 				<div class="char-counter"><span>500</span> letras restantes</div>
+				<div id="errors"></div>
 				<input type="submit" class="btn-add" value=""/>
 				<div class="ajax-loader" style="display: none"></div>
 				<div class="done" style="display: none">Est&aacute;gio adicionado!</div>
