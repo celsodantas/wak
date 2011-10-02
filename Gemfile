@@ -4,16 +4,19 @@ gem 'rails', '3.1'
 
 gem "sqlite3"
 gem "mysql2"
-gem "will_paginate"
+gem "kaminari"
+
+gem 'sass-rails', "  ~> 3.1.0"
+gem 'jquery-rails'
+gem 'redcarpet'
+gem 'activeadmin'
 
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
-gem 'redcarpet'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

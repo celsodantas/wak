@@ -1,5 +1,9 @@
 EstagioRApp::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   match "/internships/blocked", :controller => :internships, :action => :blocked
   match "/internships/:id/unblock", :controller => :internships, :action => :unblock
   match "/internships/list", :controller => :internships, :action => :list

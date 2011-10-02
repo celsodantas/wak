@@ -23,7 +23,7 @@ class InternshipsController < ApplicationController
   # GET /internships.json
   def index
     @internship = Internship.new
-    @internships = Internship.newer(params).paginate(:page => params[:page], :per_page => 10)
+    @internships = Internship.newer(params).page(params[:page]).per(10)
     
     respond_to do |format|
       format.html # index.html.erb

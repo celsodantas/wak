@@ -1,11 +1,15 @@
 # encoding: UTF-8
 # pt-BR translations for Ruby on Rails
 "pt-BR":
+
+  views:
+      pagination:
+        previous: "&laquo; Anterior"
+        next: "Próximo &raquo;"
+        truncate: "&hellip;"
+        last: ""
+        first: ""
   # formatos de data e hora
-  will_paginate:
-      previous_label: 'anterior'
-      next_label: 'próximo'
-      page_gap: "&hellip;"
   date:
     formats:
       default: "%d/%m/%Y"
