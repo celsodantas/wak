@@ -2,6 +2,8 @@ class InternshipsController < ApplicationController
   before_filter :generate_cookie_hash
   before_filter :is_owner, :only => :update
   
+  private
+  
   def generate_cookie_hash
     cookies[:hash] = SecureRandom.urlsafe_base64 if cookies[:hash] == nil
   end
@@ -15,9 +17,12 @@ class InternshipsController < ApplicationController
     end
   end
   
+  public
+  
   # GET /internships
   # GET /internships.json
   def index
+    @internship = Internship.new
     @internships = Internship.newer(params).paginate(:page => params[:page], :per_page => 10)
     
     respond_to do |format|
@@ -32,7 +37,7 @@ class InternshipsController < ApplicationController
     @internship = Internship.find(params[:id])
 
     respond_to do |format|
-      format.html  {render :layout => false}         # show.html.erb
+      format.html  { render :layout => false}         # show.html.erb
       format.json  { render :json => @internship }
     end
   end
@@ -60,7 +65,7 @@ class InternshipsController < ApplicationController
       end
     end 
   end
-
+  
   # PUT /internships/1
   # PUT /internships/1.json
   def update
@@ -70,10 +75,10 @@ class InternshipsController < ApplicationController
     respond_to do |format|
       if @internship.owner_hash == cookies[:hash] and
         @internship.update_attributes(params[:internship])
+        format.js
         format.html { redirect_to(@internship, :notice => 'Internship was successfully updated.') }
         format.json  { head :ok }
       else
-        format.html { render :action => "edit" }
         format.json  { render :json => @internship.errors, :status => :unprocessable_entity }
       end
     end
