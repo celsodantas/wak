@@ -24,6 +24,8 @@ $(function () {
 		$(".right-content .content article:last").remove();
 	}
 
+	$(".done").show();
+	$(".ajax-loader").hide();
 	addInternshipInView("<%= escape_javascript(render(@internship)) %>");
 	hideNewInternshipBox(function(){}); // method in view
 });
