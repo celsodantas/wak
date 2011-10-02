@@ -2,4 +2,4 @@
 
 Internship listing app.
 
-_still under development!_
+still under development!
