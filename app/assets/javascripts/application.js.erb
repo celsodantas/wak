@@ -1,0 +1,53 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require modernizr.custom.70497
+//= require jquery-simplyCountable
+//= require_self
+//= require_tree .
+
+Modernizr.load({
+	test: Modernizr.borderradius && Modernizr.boxshadow,
+	nope: "<%= asset_path("PIE.js") %>"
+})
+
+$(function() {
+	
+	function fixRightSizeDiv() { 
+		$(".right-content .content").css("width", $(window).width()-$(".left-content").width() + "px") 
+		$(".right-content .internship textarea").css("width",$(".internship").width()-37)
+		$(".right-content .internship input").css("width", $(".internship").width()-180);
+	}
+	$(window).resize(fixRightSizeDiv);
+	fixRightSizeDiv();
+	
+	var search_erase_btn = $("#txt-search .erase-btn");
+	
+	$("#query-form").submit(function() {
+		var query = $.trim( $("#query").val() );
+		if (query == "") return false;
+	})
+	
+	$("#query").keyup(function() {
+		var v = $.trim($(this).val());
+		if (v.length > 0)
+			search_erase_btn.show();
+		else
+			search_erase_btn.hide();
+	})
+	
+	if ($("#query").val() != "")
+		search_erase_btn.show();
+	
+	search_erase_btn.click(function () {
+		$("#query").val("");
+		window.location = "internships";
+	})
+	
+	$("#remove-filter").click(function() {
+		$("#txt-search .erase-btn").click();
+	})
+	
+	
+	
+});
