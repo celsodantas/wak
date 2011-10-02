@@ -1,5 +1,5 @@
-<article class="internship" editing="false">
-	<%= form_for internship do -%>
+<article class="internship" editing="false" id="internship_<%= internship.id %>">
+	<%= form_for internship, :remote => true do |f| %>
 		<h1><%=internship.title%></h1>
 		<div class="release-date"><%= internship.updated_at.strftime("%d/%m/%y") %></div>
 		<div class="division"><div class="line"></div></div>
@@ -19,6 +19,7 @@
 				<%= time_ago_in_words(internship.created_at) %> atr&aacute;s
 			</div>
 			<a class="edit">editar</a>
+			<a class="save" style="display: none">salvar</a>
 		<% end %>
 	<% end -%>
 </article>
