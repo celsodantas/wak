@@ -187,26 +187,21 @@ div#box-add-internship {
 				}
 				.points { float: left; margin: 0 11px 0 0;}
 				input {
-					border: 0 none;
-					color: #C6C6C6;
+					border: 1px solid;
 				    font-family: Arial,sans-serif;
 				    font-size: 12px;
 				    height: 19px;
-				    width: 302px;
+				    width: 300px;
 					.has_content {
 						color: black;
 					}
 				}
-				.black-txt {
-					color: black;
-				}
 				textarea {
 					font-family: Arial, sans-serif;
-					color: #c6c6c6;
 					font-size: 13px;
 					height: 124px;
-					width: 302px;
-					border: 0 none;
+					width: 298px;
+					border: 1px solid;
 				}
 			}
 			.char-counter {
@@ -282,14 +277,22 @@ div.right-content {
 			position:relative;
 			margin: 40px;	
 			padding-bottom: 10px;
+			-webkit-border-radius: 24px;
+			-moz-border-radius: 24px;
 			border-radius: 24px;
-			background-color: #C9C9C9;
-			background-image: -webkit-linear-gradient(top, white, #A5A5A5);
-			background-image: -moz-linear-gradient(top, white, #A5A5A5);
-			background-image: -ms-linear-gradient(top, white, #A5A5A5);
-			background-image: -o-linear-gradient(top, white, #A5A5A5);
-			background-image: linear-gradient(top, white, #A5A5A5);
-			box-shadow: 1px 4px 8px #010;}
+			-webkit-box-shadow: black 0px 2px 8px;
+			-moz-box-shadow: black 0px 2px 8px;
+			box-shadow: black 0px 2px 8px;
+			background: #FFFFFF;
+			background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFFFFF), to(#A5A5A5));
+			background: -webkit-linear-gradient(#FFFFFF, #A5A5A5);
+			background: -moz-linear-gradient(#FFFFFF, #A5A5A5);
+			background: -ms-linear-gradient(#FFFFFF, #A5A5A5);
+			background: -o-linear-gradient(#FFFFFF, #A5A5A5);
+			background: linear-gradient(#FFFFFF, #A5A5A5);
+			-pie-background: linear-gradient(#FFFFFF, #A5A5A5);
+			text-shadow: 0 1px 0 #ddd;
+		}
 			
 		.header { 		/* HEADER */
 			height: 40px; 
@@ -299,7 +302,7 @@ div.right-content {
 				font-weight: 100;
 				padding: 14px 0 0 20px; }
 			.txt  {
-				color: gray;
+				color: #111;
 				font-size: 12px;
 				position: absolute;
 				right: 20px;
@@ -364,6 +367,8 @@ div.right-content {
 				a { color: gray; }
 			}
 			.edit,.save {
+				border: 0;
+				background-color: transparent;
 				cursor: pointer;
 				text-decoration: underline;
 				font-size: 11px;
