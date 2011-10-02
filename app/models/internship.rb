@@ -1,7 +1,7 @@
 # coding: utf-8 
 class Internship < ActiveRecord::Base
   has_and_belongs_to_many :fields
-  before_save :save_or_use_fields
+  before_save :save_or_use_fields, :strip_description_lines
   
   validates :title, :presence => true
   validates :description, :uniqueness => {:in => true, :message => "Não é possível existir dois anúcios iguais. Altere a Descrição."}, 
@@ -39,5 +39,14 @@ class Internship < ActiveRecord::Base
     self.fields.collect! do |field|
       field = Field.find_or_initialize_by_description(field.description)
     end
+  end
+  
+  def strip_description_lines
+    self.description = self.description.each_line.to_a.map do |desc|
+      desc.strip!
+      desc += "\n"
+    end.join
+    
+    self.description.strip! # removendo o ultimo \n
   end
 end
