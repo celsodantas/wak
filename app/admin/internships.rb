@@ -3,11 +3,11 @@ ActiveAdmin.register Internship do
       column :id
       column :title
       column :description
-      column :fields do |f|
-        f.title
+      column "Fields" do |f|
+        f.fields.map { |i| i.description }.join ","
       end
-      column "Create Date", :created_at
-      column "Update Date", :updated_at
+      column :created_at
+      column :updated_at
       default_actions
     end  
 end
