@@ -1,23 +1,22 @@
-
-<div class="header">
-	<h1 class="text-shadow">Listando todas as &aacute;reas</h1>					
-	<% if params[:query] != nil %>
-		<span class="txt">Filtrando por: <%=params[:query]%> - <a id="remove-filter" href="<%= internships_path %>">remover filtro</a></span>
-	<% end %>
+<% cache @internships do %>
+	<div class="header">
+		<h1 class="text-shadow">Listando todas as &aacute;reas</h1>					
+		<% if params[:query] != nil %>
+			<span class="txt">Filtrando por: <%=params[:query]%> - <a id="remove-filter" href="<%= internships_path %>">remover filtro</a></span>
+		<% end %>
 	
-</div>
+	</div>
 
-<%= render :partial => 'internships' %>
+	<%= render :partial => 'internships' %>
 
-<% if @internships.length == 0 %>
-	<article class="internship">
-		<p style="padding-top: 23px">
-			Não foi encontrado nenhum estágio para esse critério de busca.
-		</p>
-	</article>
+	<% if @internships.length == 0 %>
+		<article class="internship">
+			<p style="padding-top: 23px">
+				Não foi encontrado nenhum estágio para esse critério de busca.
+			</p>
+		</article>
+	<% end %>
 <% end %>
-
-
 
 		
 		
