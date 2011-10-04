@@ -9,6 +9,10 @@
         truncate: "&hellip;"
         last: ""
         first: ""
+      comment:
+          zero: 'nenhum comentário'
+          one: '%{count} comentário'
+          other: '%{count} comentários'
   # formatos de data e hora
   date:
     formats:
@@ -71,6 +75,7 @@
       default: "%A, %d de %B de %Y, %H:%M h"
       short: "%d/%m, %H:%M h"
       long: "%A, %d de %B de %Y, %H:%M h"
+      medium: "%d/%m/%Y as %H:%Mh"
     am: ''
     pm: ''
 
