@@ -1,6 +1,6 @@
 <article class="internship" editing="false" id="internship_<%= internship.id %>">
 	<%= form_for internship, :remote => true do |f| %>
-		<h1><%=internship.title%></h1>
+		<header> <%= link_to internship.title, internship_path(internship) %></header>
 		<div class="release-date"><%= internship.updated_at.strftime("%d/%m/%y") %></div>
 		<div class="division"><div class="line"></div></div>
 		<div class="fields">
@@ -12,6 +12,11 @@
 		</div>
 		<div class="description">
 			<%= markdown(internship.description) %>
+		</div>
+		<div class="comments-count">
+			<%= link_to internship_path(internship) do %>
+				<%= t 'views.comment', :count => internship.comments.count %>
+			<% end %>
 		</div>
 		<% if internship.created_at > (Time.now - 15.minutes) and
 			  internship.owner_hash == cookies[:hash] %>
