@@ -1,26 +1,16 @@
 
-<article class="internship" editing="false">
-	<%= form_for @internship do -%>
-		<h1><%=@internship.title%></h1>
-		<div class="release-date"><%= @internship.updated_at.strftime("%d/%m/%y") %></div>
-		<div class="division"><div class="line"></div></div>
-		<div class="fields">
-			<% @internship.fields.each do |f| %> 
-				<%= f.description %>, 
-			<% end %>
-		</div>
-		<div class="description">
-			<% @internship.description.split("\n").each do |des| %>
-				<p><%= des %></p>
-			<% end %>
-		</div>
-		<% if @internship.created_at > (Time.now - 15.minutes) and
-			  @internship.owner_hash == cookies[:hash] %>
-			<div class="time_ago_in_words">
-				<%= time_ago_in_words(@internship.created_at) %> atr&aacute;s
-			</div>
-			<a class="edit">editar</a>
-		<% end %>
-	<% end -%>
-</article>
+<%= render @internship %>
 
+<div id="separator"></div>
+<div id="comments">
+	<header class="comments">
+		Comentários
+	</header>
+	<% if @internship.comments.each do |comment| %>
+		<%= render :partial => "/comments/comment", :object => comment %>
+	<% end.empty? %>
+		<div class="no-comments">
+			Não existe comentários para esse estágio.
+		</div>
+	<% end %>
+</div>
