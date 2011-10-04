@@ -37,7 +37,7 @@ class InternshipsController < ApplicationController
     @internship = Internship.find(params[:id])
 
     respond_to do |format|
-      format.html  { render :layout => false}         # show.html.erb
+      format.html  
       format.json  { render :json => @internship }
     end
   end
