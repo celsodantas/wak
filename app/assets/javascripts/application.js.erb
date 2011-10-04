@@ -16,7 +16,7 @@ Modernizr.load({
 $(function() {
 	
 	function fixRightSizeDiv() { 
-		$(".right-content .content").css("width", $(window).width()-$(".left-content").width() + "px") 
+		$(".right-content .content:first").css("width", $(window).width()-$(".left-content").width() + "px") 
 		$(".right-content .internship textarea").css("width",$(".internship").width()-37)
 		$(".right-content .internship input").css("width", $(".internship").width()-180);
 	}
