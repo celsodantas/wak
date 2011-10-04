@@ -1,0 +1,51 @@
+#comments {
+	header {
+		padding: 31px 0 0 42px;
+		color: white;
+		font-family: Helvetica, sans-serif;
+	}
+	.comment {
+		position:relative;
+		margin: 10px 40px 25px 40px;	
+		padding: 0;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		-webkit-box-shadow: black 0px 2px 8px;
+		-moz-box-shadow: black 0px 2px 8px;
+		box-shadow: black 0px 2px 8px;
+		background: #FFFFFF;
+		background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFFFFF), to(#A5A5A5));
+		background: -webkit-linear-gradient(#FFFFFF, #A5A5A5);
+		background: -moz-linear-gradient(#FFFFFF, #A5A5A5);
+		background: -ms-linear-gradient(#FFFFFF, #A5A5A5);
+		background: -o-linear-gradient(#FFFFFF, #A5A5A5);
+		background: linear-gradient(#FFFFFF, #A5A5A5);
+		-pie-background: linear-gradient(#FFFFFF, #A5A5A5);
+		text-shadow: 0 1px 0 #ddd;
+		.gravatar {
+			height: 40px;
+			width: 40px;
+			position: absolute;
+			top: 12px;
+			left: 21px;
+			border: 2px solid;
+		}
+		.author {
+			padding: 12px 0 0 75px;
+			font-size: 15px;
+			color: #999;
+		}
+		.created_at {
+			padding: 0 16.6px 0 16px;
+			float: right;
+			margin: -13px 0 0 0;
+			font-size: 11px;
+			color: #555;
+		}
+		.content {
+			padding: 13px 0 15px 76px;
+			font-size: 13px;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+<div id="comment_<%= comment.id %>" class="comment">
+	<%= image_tag gravatar_url(comment), :class => "gravatar" %>
+	<div class="author">
+		<%= comment.author %> diz:
+	</div>
+	<div class="created_at">
+		<%= l comment.created_at, :format => :medium %>
+	</div>
+	<div class="content">
+		<%= comment.content %>
+	</div>
+</div>
