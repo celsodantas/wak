@@ -1,6 +1,7 @@
 # coding: utf-8 
 class Internship < ActiveRecord::Base
   has_and_belongs_to_many :fields
+  has_many :comments
   before_save :save_or_use_fields, :strip_description_lines
   
   validates :title, :presence => true
