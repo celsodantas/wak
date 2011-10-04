@@ -183,7 +183,7 @@ div#box-add-internship {
 					margin: 0 5px 0 0;
 					&.title { margin: 0 44px 0 0; }
 					&.field { margin: 0 49px 0 0; }
-					&.description { margin: 0 14px 0 0; }
+					&.description { margin: 0px 14px 0 0; }
 				}
 				.points { float: left; margin: 0 11px 0 0;}
 				input {
@@ -269,17 +269,15 @@ div.right-content {
 		width:500px; }
 		
 	.content {
-		float: right;
 		/*width é calculado por javascript*/
 	
 		.header,.internship {
-			word-wrap:break-word;
 			position:relative;
 			margin: 40px;	
 			padding-bottom: 10px;
-			-webkit-border-radius: 24px;
-			-moz-border-radius: 24px;
-			border-radius: 24px;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
 			-webkit-box-shadow: black 0px 2px 8px;
 			-moz-box-shadow: black 0px 2px 8px;
 			box-shadow: black 0px 2px 8px;
@@ -313,45 +311,16 @@ div.right-content {
 		}
 				
 		.internship {
-			h1 {  	/* INTERNSHIP */
+			header {  	/* INTERNSHIP */
 				font-size: 19px;
 				font-weight: 100;
 				padding: 14px 0 0 20px;
 				margin: 0;
-				color: #6A6A6A;}
-				
-			input {
-				height: 20px; 
-				padding:0; 
-				margin: 11px 0 0 16px; 
-				width: 450px;
-				color: #6A6A6A;
-			    font-size: 18px;
-			    font-weight: 100;
-				font-family: Arial,sans-serif;}
-			
-			textarea {
-				height: 124px;
-				padding:0; 
-				margin: 5px 0 13px 16px; 
-				color: #6A6A6A;
-			    font-size: 14px;
-			    font-weight: 100;
-				font-family: Arial,sans-serif;}	
-				
-			p {  	/* INTERNSHIP */
-				font-size: 14px;
-				font-weight: 100;
-				padding: 0 20px 0 20px;
-				color: black;}
-				
-			.release-date {  	/* INTERNSHIP */
-				font-family: Cursive;
-				font-size: 21px;
-				color: gray;
-				position: absolute;
-				top: 8px; right: 15px;}
-				    	
+				a {
+					text-decoration: none;
+					color: #6A6A6A;
+				}
+			}
 			.division {
 				width: 100%;
 				.line {
@@ -359,13 +328,20 @@ div.right-content {
 						background-color: #b0b0b1;
 						margin: 0 110px 0 19px;}
 			}
-			
+		
 			.fields {
 				font-size: 10px;
 				color: gray;
 				margin: 2px 0 -7px 24px;
 				a { color: gray; }
 			}
+			.release-date {  	/* INTERNSHIP */
+				font-family: Cursive;
+				font-size: 21px;
+				color: gray;
+				position: absolute;
+				top: 8px; right: 15px;}
+			    	
 			.edit,.save {
 				border: 0;
 				background-color: transparent;
@@ -376,17 +352,60 @@ div.right-content {
 				bottom: 5px;
 				right: 23px;
 			}
+			textarea {
+				height: 124px;
+				padding:0; 
+				margin: 5px 0 13px 16px; 
+				color: #6A6A6A;
+			    font-size: 14px;
+			    font-weight: 100;
+				font-family: Arial,sans-serif;}
 			.time_ago_in_words {
 				font-size: 9px;
 				position: absolute;
 				bottom: 5px;
 				right: 56px;
+			}	
+			.comments-count {
+				font-size: 11px;
+				position: absolute;
+				bottom: 5px;
+				left: 20px;
+				a{ 
+					color: #444;
+					text-shadow: 0 0 0 #DDD;
+					background-color: transparent;
+					text-shadow: 0 0 0 #ddd; }
 			}
-			h1 {
-				font-size: 18px;
-			}
-			li {
-				font-size: 14px;
+			.description {	
+				margin: 13px 0 20px 0px;
+				input {
+					height: 20px; 
+					padding:0; 
+					margin: 11px 0 0 16px; 
+					width: 450px;
+					color: #6A6A6A;
+				    font-size: 18px;
+				    font-weight: 100;
+					font-family: Arial,sans-serif;}
+				p {  	/* INTERNSHIP */
+					font-size: 13px;
+					font-weight: 100;
+					padding: 0 20px 0 20px;
+					color: black;}
+				h1 {
+					font-size: 15px;
+					padding: 0px 0 0 20px;
+					margin: 0;
+					color: #6A6A6A;
+
+				}
+				ul {
+					margin: 5px 0 7px 0px;
+					li {
+						font-size: 13px;
+					}
+				}
 			}
 		}
 	}
