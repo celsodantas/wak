@@ -6,7 +6,7 @@ module ApplicationHelper
   end
   
   def gravatar_url(comment)
-    default_url = "#{root_url}images/guest.png"
+    default_url = root_url + asset_path("default_avatar.png")
     gravatar_id = Digest::MD5.hexdigest(comment.email.downcase)
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=40&d=#{CGI.escape(default_url)}"
   end
