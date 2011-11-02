@@ -1,30 +1,25 @@
 <article class="internship" editing="false" id="internship_<%= internship.id %>">
 	<%= form_for internship, :remote => true do |f| %>
-		<header> <%= link_to internship.title, internship_path(internship) %></header>
-		<div class="release-date"><%= internship.updated_at.strftime("%d/%m/%y") %></div>
-		<div class="division"><div class="line"></div></div>
-		<div class="fields">
-			<% internship.fields.each do |f| %> 
-				<%= link_to f.description, :controller => "internships", :query => f.description %>
-				<% if f != internship.fields.last %>,
-				<% end %>
-			<% end %>
-		</div>
-		<div class="description">
-			<%= markdown(internship.description) %>
-		</div>
-		<div class="comments-count">
-			<%= link_to internship_path(internship) do %>
-				<%= t 'views.comment', :count => internship.comments.count %>
-			<% end %>
-		</div>
-		<% if internship.created_at > (Time.now - 15.minutes) and
-			  internship.owner_hash == cookies[:hash] %>
-			<div class="time_ago_in_words">
-				<%= time_ago_in_words(internship.created_at) %> atr&aacute;s
+		<% present internship do |presenter| %>
+			<header> <%= presenter.link_to_header %> </header>
+			<div class="release-date"> <%= presenter.release_date %> </div>
+			<div class="division"><div class="line"></div></div>
+			<div class="fields">
+				<%= presenter.fields %>
 			</div>
-			<a class="edit">editar</a>
-			<a class="save" style="display: none">salvar</a>
+			<div class="description">
+				<%= presenter.description %>
+			</div>
+			<div class="comments-count">
+				<%= presenter.link_to_comments %>
+			</div>
+			<% presenter.edit_link do %>
+				<div class="time_ago_in_words">
+					<%= time_ago_in_words(internship.created_at) %> atr&aacute;s
+				</div>
+				<a class="edit">editar</a>
+				<a class="save" style="display: none">salvar</a>
+			<% end %>
 		<% end %>
 	<% end -%>
 </article>
