@@ -62,8 +62,10 @@ ActiveRecord::Schema.define(:version => 20111003233051) do
   end
 
   create_table "fields_internships", :id => false, :force => true do |t|
-    t.integer "field_id"
-    t.integer "internship_id"
+    t.integer  "field_id"
+    t.integer  "internship_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "internships", :force => true do |t|

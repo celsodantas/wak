@@ -11,6 +11,9 @@ gem 'jquery-rails'
 gem 'redcarpet'
 gem 'activeadmin'
 
+gem 'ruby-debug19'
+gem 'jquery-rails'
+
 group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
