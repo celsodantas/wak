@@ -11,7 +11,6 @@ gem 'jquery-rails'
 gem 'redcarpet'
 gem 'activeadmin'
 
-gem 'ruby-debug19'
 gem 'jquery-rails'
 
 group :assets do
@@ -19,7 +18,9 @@ group :assets do
   gem 'uglifier'
 end
 
-
+group :development do
+  gem 'ruby-debug19'
+end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
