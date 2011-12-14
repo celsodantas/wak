@@ -7,8 +7,8 @@
 	
 	</div>
 
-	<%= render :partial => 'internships' %>
-
+	<%= render :partial => 'internship', :collection => @internships %>
+	
 	<% if @internships.length == 0 %>
 		<article class="internship">
 			<p style="padding-top: 23px">
