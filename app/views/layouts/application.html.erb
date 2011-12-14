@@ -3,7 +3,7 @@
 <head>
   <title>Wak - Seu próximo estágio, você encontra aqui!</title> 
   <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application", "jquery", "jquery-ui", "jquery.sausage" %>
+  <%= javascript_include_tag "libs" %>
   <script type="text/javascript">
 	  var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-25307154-1']); _gaq.push(['_trackPageview']);
 	  (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
@@ -35,9 +35,12 @@
 		<div class="content">
 			<%= yield %>
 		</div>
+		<div id="infinite_scrolling_loading" style="display: none">
+			<%= image_tag "ajax-loader.gif" %>
+		</div>
 	</div>
 	
 	<%= render 'form'%>
-
+	<%= javascript_include_tag "application" %>
 </body>
 </html>
